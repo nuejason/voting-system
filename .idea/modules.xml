@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/abi/abi.iml" filepath="$PROJECT_DIR$/abi/abi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/codegen/codegen.iml" filepath="$PROJECT_DIR$/codegen/codegen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/console/console.iml" filepath="$PROJECT_DIR$/console/console.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/crypto/crypto.iml" filepath="$PROJECT_DIR$/crypto/crypto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/geth/geth.iml" filepath="$PROJECT_DIR$/geth/geth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/infura/infura.iml" filepath="$PROJECT_DIR$/infura/infura.iml" />
+      <module fileurl="file://$PROJECT_DIR$/integration-tests/integration-tests.iml" filepath="$PROJECT_DIR$/integration-tests/integration-tests.iml" />
+      <module fileurl="file://$PROJECT_DIR$/parity/parity.iml" filepath="$PROJECT_DIR$/parity/parity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rlp/rlp.iml" filepath="$PROJECT_DIR$/rlp/rlp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tuples/tuples.iml" filepath="$PROJECT_DIR$/tuples/tuples.iml" />
+      <module fileurl="file://$PROJECT_DIR$/utils/utils.iml" filepath="$PROJECT_DIR$/utils/utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/voting system.iml" filepath="$PROJECT_DIR$/voting system.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,10 @@
+-classpath 'C:\\Temp\\keywallettest\\rlp\\build\\classes\\java\\main;C:\\Temp\\keywallettest\\rlp\\build\\resources\\main'
+-d 'C:\\Temp\\keywallettest\\rlp\\build\\docs\\javadoc'
+-doctitle 'rlp API'
+-quiet 
+-windowtitle 'rlp API'
+'C:\\Temp\\keywallettest\\rlp\\src\\main\\java\\org\\web3j\\rlp\\RlpDecoder.java'
+'C:\\Temp\\keywallettest\\rlp\\src\\main\\java\\org\\web3j\\rlp\\RlpEncoder.java'
+'C:\\Temp\\keywallettest\\rlp\\src\\main\\java\\org\\web3j\\rlp\\RlpList.java'
+'C:\\Temp\\keywallettest\\rlp\\src\\main\\java\\org\\web3j\\rlp\\RlpString.java'
+'C:\\Temp\\keywallettest\\rlp\\src\\main\\java\\org\\web3j\\rlp\\RlpType.java'

@@ -1,0 +1,77 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.spongycastleVersion = '1.54.0.0'
+    ext.jacksonVersion = '2.8.5'
+    ext.javapoetVersion = '1.7.0'
+    ext.jnr_unixsocketVersion = '0.15'
+    ext.okhttpVersion = '3.8.1'
+    ext.rxjavaVersion = '1.2.4'
+    ext.slf4jVersion = '1.7.25'
+
+    // test dependencies
+    ext.equalsverifierVersion = '2.1.7'
+    ext.junitVersion = '4.11'
+    ext.junitBenchmarkVersion = '0.7.2'
+    ext.logbackVersion = '1.2.3'
+    ext.mockitoVersion = '1.10.19'
+
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.3'
+        classpath 'com.github.jengelman.gradle.plugins:shadow:1.2.4'
+        classpath 'com.android.tools.build:gradle:3.0.1'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+
+    tasks.withType(Javadoc) {
+        options.encoding = 'UTF-8'
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+}
+
+configure(subprojects.findAll {it.name != 'app'}) {
+    apply plugin: 'java'
+}
+
+configure(subprojects.findAll {it.name != 'integration-tests' && it.name != 'app'}) {
+    task javadocJar(type: Jar) {
+        classifier = 'javadoc'
+        from javadoc
+    }
+
+    task sourcesJar(type: Jar) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
+    task testJar(type: Jar) {
+        classifier = 'tests'
+        from sourceSets.test.output
+    }
+
+    artifacts {
+        archives sourcesJar, javadocJar, testJar
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
