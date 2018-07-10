@@ -14,6 +14,7 @@ https://web3j.readthedocs.io/en/latest/smart_contracts.html#solidity-smart-contr
 <br><br>
 
 ### 4. Import the smart contract in the android application
+<br>
 
 Example
 ```
