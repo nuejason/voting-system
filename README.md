@@ -1,1 +1,1 @@
-## Voting System
+## Ethereum Smart Contract Voting System
