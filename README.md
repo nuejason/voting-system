@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         try {
 				// call your contract here
+				// http calls should be run on a different thread
 
                         } catch (Exception e) {
                             e.toString();
