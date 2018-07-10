@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         try {
+				// call your contract here
 
                         } catch (Exception e) {
                             e.toString();
