@@ -4,18 +4,16 @@
 
 ### 1. Install web3j command line tool
 https://web3j.readthedocs.io/en/latest/command_line.html
-<br>
-<br>
+<br><br>
 
 ### 2. Create web3j wrapper for solidity code
-<br>
+https://web3j.readthedocs.io/en/latest/smart_contracts.html#solidity-smart-contract-wrappers
+<br><br>
 
 ### 3. Deploy the smart contract written by the solidity code 
-
-<br>
+<br><br>
 
 ### 4. Import the smart contract in the android application
-<br>
 
 Example
 ```
