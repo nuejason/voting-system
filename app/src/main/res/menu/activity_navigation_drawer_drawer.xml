@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_my_bet"
+            android:icon="@drawable/ic_menu_mybet"
+            android:title="내 배팅 현황" />
+    </group>
+
+    <item android:title="Game">
+        <menu>
+            <item
+                android:id="@+id/nav_tdy_bet"
+                android:icon="@drawable/ic_menu_today"
+                android:title="오늘의 배팅" />
+            <item
+                android:id="@+id/nav_game_plan"
+                android:icon="@drawable/ic_menu_plan"
+                android:title="경기 일정" />
+            <item
+                android:id="@+id/nav_team_info"
+                android:icon="@drawable/ic_menu_team"
+                android:title="팀 정보" />
+        </menu>
+    </item>
+
+    <item android:title="My Info">
+        <menu>
+            <item
+                android:id="@+id/nav_my_acnt"
+                android:icon="@drawable/ic_menu_account"
+                android:title="내 계좌" />
+            <item
+                android:id="@+id/nav_my_info"
+                android:icon="@drawable/ic_menu_myinfo"
+                android:title="내 정보" />
+            <item
+                android:id="@+id/nav_setting"
+                android:icon="@drawable/ic_menu_setting"
+                android:title="설정" />
+        </menu>
+    </item>
+
+</menu>
