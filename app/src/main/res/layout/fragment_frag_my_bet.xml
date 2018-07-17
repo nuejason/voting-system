@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     tools:context="kr.co.keypair.votingsystem.fragmentation.frag_my_bet">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
