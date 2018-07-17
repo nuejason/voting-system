@@ -22,10 +22,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-
-import kr.co.keypair.votingsystem.fragmentation.frag_my_bet;
-
-
+import kr.co.keypair.votingsystem.fragmentation.*;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -33,17 +30,18 @@ public class MainActivity extends AppCompatActivity
     private final String msContractAddr = "0x0101010101010101010101010101010101010101";
     private final String msPrikey = "0x627c3cced38c0068f8ac17b989fc166551dd061400998585e80fd4ef6251be07";
 
-    private Fragment frag;
+    private Fragment my_bet_frag;
+    private Fragment game_frag;
+    private Fragment my_acct_frag;
+    private Fragment my_info_frag;
+    private Fragment setting_frag;
+    private Fragment tdy_bet_frag;
+    private Fragment team_info_frag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        //여기 오류 수정해야함
-        //transaction.add(R.id.container, frag);
-        //transaction.addToBackStack(null); transaction.commit();
 
         Credentials credentials = Credentials.create(msPrikey);
         Web3j web3 = Web3jFactory.build(new HttpService("https://rinkeby.infura.io/swGGKC97MU0pqiKuFUpA"));
@@ -70,9 +68,9 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton home = (FloatingActionButton) findViewById(R.id.home);
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -88,6 +86,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
     @Override
@@ -111,21 +110,30 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_my_bet) {
-            //frag = new frag_my_bet();
-            //transaction.replace(R.id.container, frag);
+            my_bet_frag = new frag_my_bet();
+            transaction.replace(R.id.content, my_bet_frag);
         } else if (id == R.id.nav_tdy_bet) {
-
+            tdy_bet_frag = new frag_tdy_bet();
+            transaction.replace(R.id.content, tdy_bet_frag);
         } else if (id == R.id.nav_game_plan) {
-
+            game_frag = new frag_game();
+            transaction.replace(R.id.content, game_frag);
         } else if (id == R.id.nav_team_info) {
-
+            team_info_frag = new frag_team_info();
+            transaction.replace(R.id.content, team_info_frag);
         } else if (id == R.id.nav_my_acnt) {
-
+            my_acct_frag = new frag_my_acct();
+            transaction.replace(R.id.content, my_acct_frag);
         } else if (id == R.id.nav_my_info) {
-
+            my_info_frag = new frag_my_info();
+            transaction.replace(R.id.content, my_info_frag);
         } else if (id == R.id.nav_setting) {
-
+            setting_frag = new frag_setting();
+            transaction.replace(R.id.content, setting_frag);
         }
+
+        transaction.addToBackStack(null);
+        transaction.commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

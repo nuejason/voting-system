@@ -15,7 +15,7 @@
             <item
                 android:id="@+id/nav_tdy_bet"
                 android:icon="@drawable/ic_menu_today"
-                android:title="오늘의 배팅" />
+                android:title="오늘의 경기" />
             <item
                 android:id="@+id/nav_game_plan"
                 android:icon="@drawable/ic_menu_plan"
