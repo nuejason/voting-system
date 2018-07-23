@@ -11,11 +11,11 @@ import kr.co.keypair.votingsystem.R;
 
 public class frag_my_acct extends Fragment {
 
-    public static frag_my_acct newInstance(String param1, String param2) {
-        frag_my_acct fragment = new frag_my_acct();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        getActivity().setTitle("내 계좌");
+        return inflater.inflate(R.layout.fragment_frag_my_acct, container, false);
     }
 
     @Override
@@ -24,11 +24,5 @@ public class frag_my_acct extends Fragment {
 
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        getActivity().setTitle("내 계좌");
-        return inflater.inflate(R.layout.fragment_frag_my_acct, container, false);
-    }
 
 }

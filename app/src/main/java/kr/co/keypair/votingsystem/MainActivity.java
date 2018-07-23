@@ -8,41 +8,40 @@ import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.Web3jFactory;
 import org.web3j.protocol.http.HttpService;
-import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.widget.TextView;
 import kr.co.keypair.votingsystem.fragmentation.*;
+import kr.co.keypair.votingsystem.fragmentation.setting.frag_setting;
+import kr.co.keypair.votingsystem.fragmentation.team_info.frag_team_info;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 
     private final String msContractAddr = "0x0101010101010101010101010101010101010101";
-    private final String msPrikey = "0x627c3cced38c0068f8ac17b989fc166551dd061400998585e80fd4ef6251be07";
 
     private Fragment my_bet_frag;
     private Fragment game_frag;
     private Fragment my_acct_frag;
-    private Fragment my_info_frag;
     private Fragment setting_frag;
     private Fragment tdy_bet_frag;
     private Fragment team_info_frag;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final String msPrikey = getIntent().getStringExtra("pwd");
         Credentials credentials = Credentials.create(msPrikey);
         Web3j web3 = Web3jFactory.build(new HttpService("https://rinkeby.infura.io/swGGKC97MU0pqiKuFUpA"));
 
@@ -56,7 +55,6 @@ public class MainActivity extends AppCompatActivity
                         try {
                             // call your contract here
                             // http calls should be run on a different thread
-
                         } catch (Exception e) {
                             e.toString();
                         }
@@ -65,16 +63,24 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        my_bet_frag = new frag_my_bet();
+        transaction.replace(R.id.content, my_bet_frag);
+        transaction.addToBackStack(null);
+        transaction.commit();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         FloatingActionButton home = (FloatingActionButton) findViewById(R.id.home);
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                my_bet_frag = new frag_my_bet();
+                transaction.replace(R.id.content, my_bet_frag);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 
@@ -86,6 +92,12 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View headerView = navigationView.getHeaderView(0);
+
+        //로그인한 유저의 닉네임
+        String name = getIntent().getStringExtra("name");
+        TextView text = (TextView)headerView.findViewById(R.id.drawer_name);
+        text.append(name + "  님");
 
     }
 
@@ -109,10 +121,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_my_bet) {
-            my_bet_frag = new frag_my_bet();
-            transaction.replace(R.id.content, my_bet_frag);
-        } else if (id == R.id.nav_tdy_bet) {
+        if (id == R.id.nav_tdy_bet) {
             tdy_bet_frag = new frag_tdy_bet();
             transaction.replace(R.id.content, tdy_bet_frag);
         } else if (id == R.id.nav_game_plan) {
@@ -124,9 +133,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_my_acnt) {
             my_acct_frag = new frag_my_acct();
             transaction.replace(R.id.content, my_acct_frag);
-        } else if (id == R.id.nav_my_info) {
-            my_info_frag = new frag_my_info();
-            transaction.replace(R.id.content, my_info_frag);
         } else if (id == R.id.nav_setting) {
             setting_frag = new frag_setting();
             transaction.replace(R.id.content, setting_frag);

@@ -1,0 +1,68 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="kr.co.keypair.votingsystem.fragmentation.setting.setting_team">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="kr.co.keypair.votingsystem.fragmentation.setting.setting_version">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="151dp"
+            android:layout_marginEnd="167dp"
+            android:layout_marginStart="168dp"
+            android:text="김한규"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="167dp"
+            android:layout_marginStart="167dp"
+            android:text="고현지"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/imageView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="174dp"
+            android:layout_height="114dp"
+            android:layout_marginBottom="27dp"
+            android:layout_marginEnd="105dp"
+            android:layout_marginStart="105dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/woman" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="173dp"
+            android:layout_height="130dp"
+            android:layout_marginBottom="19dp"
+            android:layout_marginEnd="105dp"
+            android:layout_marginStart="106dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/man" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+</FrameLayout>

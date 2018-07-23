@@ -1,44 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#bac1c9"
-    tools:context="kr.co.keypair.votingsystem.fragmentation.frag_setting">
+    android:background="#ffffff"
+    tools:context="kr.co.keypair.votingsystem.fragmentation.setting.frag_setting">
 
-    <Button
-        android:id="@+id/notice"
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView_setting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/ic_notice"
-        android:drawableRight="@drawable/ic_point"
-        android:drawable="@color/button_default"
-        android:text="공지사항"
-        android:textAlignment="center"
-        android:textSize="17sp" />
-
-    <Button
-        android:id="@+id/version"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:drawableLeft="@drawable/ic_version"
-        android:drawableRight="@drawable/ic_point"
-        android:text="버전정보"
-        android:drawable="@color/button_default"
-        android:textAlignment="center"
-        android:textSize="17sp" />
-
-    <Button
-        android:id="@+id/team"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:drawableLeft="@drawable/ic_team"
-        android:drawableRight="@drawable/ic_point"
-        android:drawable="@color/button_default"
-        android:text="My team"
-        android:textAlignment="center"
-        android:textSize="17sp" />
+        android:layout_marginTop="0dp"
+        android:scrollbars="vertical" />
 
 </FrameLayout>

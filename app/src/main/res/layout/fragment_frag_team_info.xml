@@ -1,13 +1,17 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="kr.co.keypair.votingsystem.fragmentation.frag_team_info">
+    android:background="#ffffff"
+    android:id="@+id/team_info"
+    tools:context="kr.co.keypair.votingsystem.fragmentation.team_info.frag_team_info">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView_team_info"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:scrollbars="vertical" />
 
 </FrameLayout>

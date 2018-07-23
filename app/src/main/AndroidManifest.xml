@@ -2,13 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.co.keypair.votingsystem">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
-        android:icon="@drawable/launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait"
@@ -20,10 +20,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".Login.LoginActivity" />
-        <activity android:name=".Login.RegisterActivity"
-            ></activity>
-
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".fragmentation.setting.setting_version" />
+        <activity android:name=".fragmentation.setting.setting_team" />
+        <activity android:name=".fragmentation.setting.setting_notice" />
+        <activity android:name=".Adapter.Item_plan" />
+        <activity android:name=".BettingActivity"></activity>
     </application>
 
 </manifest>

@@ -3,12 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_my_bet"
-            android:icon="@drawable/ic_menu_mybet"
-            android:title="내 배팅 현황" />
-    </group>
 
     <item android:title="Game">
         <menu>
@@ -33,10 +27,6 @@
                 android:id="@+id/nav_my_acnt"
                 android:icon="@drawable/ic_menu_account"
                 android:title="내 계좌" />
-            <item
-                android:id="@+id/nav_my_info"
-                android:icon="@drawable/ic_menu_myinfo"
-                android:title="내 정보" />
             <item
                 android:id="@+id/nav_setting"
                 android:icon="@drawable/ic_menu_setting"

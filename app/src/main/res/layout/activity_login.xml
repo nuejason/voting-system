@@ -3,59 +3,49 @@
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:background="@color/login_background">
 
-    <EditText
-        android:id="@+id/login_id"
+    <TextView
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="151dp"
-        android:hint="ID"
-        android:textColorHint="@color/login_hint2"
-        android:textColor="@color/login_hint2" />
+        android:layout_marginTop="80dp"
+        android:text="@string/login"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/login_name"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/login_pwd"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-239dp"
+        android:hint="닉네임"
+        android:textColor="@color/login_hint2"
+        android:textColorHint="@color/login_hint2" />
 
     <EditText
         android:id="@+id/login_pwd"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:hint="Password"
-        android:layout_below="@+id/login_id"
-        android:textColorHint="@color/login_hint2"
+        android:layout_marginTop="239dp"
+        android:hint="Private Key"
         android:textColor="@color/login_hint2"
-        android:password="true"/>
+        android:textColorHint="@color/login_hint2" />
 
     <Button
         android:id="@+id/login_btn"
         android:layout_width="140dp"
         android:layout_height="55dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/login_id"
-        android:layout_marginBottom="241dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="141dp"
         android:background="@color/login_button"
         android:text="Log in"
         android:textAllCaps="false"
-        android:textColor="@color/login_hint1" />
-
-    <Button
-        android:id="@+id/signup_btn"
-        android:layout_width="140dp"
-        android:layout_height="55dp"
-        android:layout_alignEnd="@+id/login_pwd"
-        android:layout_alignTop="@+id/login_btn"
-        android:layout_marginLeft="3dp"
-        android:background="@color/login_button"
-        android:text="Sign up"
-        android:textAllCaps="false"
-        android:textColor="@color/login_hint1"/>
-
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="188dp"
-        android:text="Remember login"
         android:textColor="@color/login_hint1" />
 
 </RelativeLayout>
