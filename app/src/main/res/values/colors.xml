@@ -2,6 +2,7 @@
 <resources>
     <color name="colorPrimary">#2e2e2e</color>
     <color name="colorPrimaryDark">#000000</color>
+    <color name="colorTable">#b1b1b0</color>
     <color name="colorAccent">#e0e03c</color>
     <color name="button_default">#ffffff</color>
     <color name="login_background">#2e2e2e</color>

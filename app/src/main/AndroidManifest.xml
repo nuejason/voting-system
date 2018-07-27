@@ -21,10 +21,6 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".fragmentation.setting.setting_version" />
-        <activity android:name=".fragmentation.setting.setting_team" />
-        <activity android:name=".fragmentation.setting.setting_notice" />
-        <activity android:name=".Adapter.Item_plan" />
         <activity android:name=".BettingActivity"></activity>
     </application>
 

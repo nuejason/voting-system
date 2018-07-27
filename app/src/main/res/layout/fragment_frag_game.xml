@@ -12,19 +12,17 @@
         <CalendarView
             android:id="@+id/calendarView"
             android:layout_width="386dp"
-            android:layout_height="309dp"
+            android:layout_height="313dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/recyclerView_game"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView_game"
-            android:layout_width="match_parent"
-            android:layout_height="257dp"
-            android:layout_marginBottom="1dp"
+            android:layout_width="382dp"
+            android:layout_height="253dp"
             android:scrollbars="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

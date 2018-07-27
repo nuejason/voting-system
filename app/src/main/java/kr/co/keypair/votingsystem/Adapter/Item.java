@@ -4,9 +4,11 @@ public class Item {
     private String name;
     int image;
 
+    public void setImage(int image) {
+        this.image = image;
+    }
 
-    public Item (int image, String name){
-        this.image= image;
+    public void setName(String name) {
         this.name = name;
     }
 

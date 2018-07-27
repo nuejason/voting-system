@@ -20,22 +20,21 @@ import kr.co.keypair.votingsystem.fragmentation.team_info.ARG;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
 
-    ArrayList<Item> mItems ;
+    ArrayList<Item> mItems = new ArrayList<>();;
     Context context;
+    View view;
+    int resources;
 
 
-    public RecyclerAdapter(Context context, ArrayList<Item> mItems) {
+    public RecyclerAdapter(Context context, int resource) {
         this.context = context;
-        this.mItems = mItems;
+        this.resources = resource;
     }
-
 
     // 새로운 뷰 홀더 생성
     @Override
     public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item,parent,false);
-
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item,parent,false);
         return new ItemViewHolder(view);
     }
 
@@ -44,9 +43,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
 
         final ItemViewHolder holder1 = holder ;
 
-        holder.image.setImageResource(mItems.get(position).getImage());
-        holder.name.setText(mItems.get(position).getName());
-        holder.name.setOnClickListener(new View.OnClickListener() {
+        Item items = (Item)getItem(position);
+        holder.image.setImageResource(items.getImage());
+        holder.name.setText(items.getName());
+        view.findViewById(R.id.layout_menu).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction();
@@ -74,6 +74,18 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
     @Override
     public int getItemCount() {
         return mItems.size();
+    }
+
+    private Object getItem(int position){
+        return mItems.get(position);
+    }
+
+    public void add(int image, String name){
+        Item items = new Item();
+        items.setImage(image);
+        items.setName(name);
+
+        mItems.add(items);
     }
 
     class ItemViewHolder extends RecyclerView.ViewHolder{

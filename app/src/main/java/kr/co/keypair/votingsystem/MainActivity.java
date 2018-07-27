@@ -18,9 +18,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.support.v4.app.Fragment;
 import android.widget.TextView;
+
+
+import java.io.IOException;
+
 import kr.co.keypair.votingsystem.fragmentation.*;
 import kr.co.keypair.votingsystem.fragmentation.setting.frag_setting;
 import kr.co.keypair.votingsystem.fragmentation.team_info.frag_team_info;
+import kr.co.keypair.votingsystem.DataBaseHelper;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -33,8 +38,7 @@ public class MainActivity extends AppCompatActivity
     private Fragment setting_frag;
     private Fragment tdy_bet_frag;
     private Fragment team_info_frag;
-
-
+    private DataBaseHelper mDbHelper = new DataBaseHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,11 +67,19 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
+
+        try {
+            mDbHelper.createDataBase();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         my_bet_frag = new frag_my_bet();
         transaction.replace(R.id.content, my_bet_frag);
         transaction.addToBackStack(null);
         transaction.commit();
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -145,4 +157,6 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

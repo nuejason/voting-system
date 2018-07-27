@@ -1,105 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="115dp"
     android:background="@android:color/white">
 
-    <android.support.constraint.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="75dp">
 
-        <ImageButton
+        <ImageView
             android:id="@+id/image1"
             android:layout_width="82dp"
             android:layout_height="61dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginEnd="14dp"
-            android:layout_marginStart="7dp"
-            app:layout_constraintBottom_toTopOf="@+id/country1"
-            app:layout_constraintEnd_toStartOf="@+id/textView9"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/image2"
-            android:layout_width="82dp"
-            android:layout_height="61dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginEnd="65dp"
-            android:layout_weight="1"
-            app:layout_constraintBottom_toTopOf="@+id/country2"
-            app:layout_constraintEnd_toStartOf="@+id/times"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="56dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginTop="25dp"
-            android:text="VS"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/image2"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="VS" />
+
+        <ImageView
+            android:id="@+id/image2"
+            android:layout_width="82dp"
+            android:layout_height="61dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:scaleType="centerCrop" />
 
         <TextView
             android:id="@+id/times"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="65dp"
-            android:layout_marginEnd="103dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="110dp"
+            android:layout_height="27dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="20sp" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp">
 
         <TextView
             android:id="@+id/country1"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="7dp"
-            android:layout_marginEnd="122dp"
-            android:layout_marginStart="34dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="5dp"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/country2"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/country2"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="7dp"
-            android:layout_marginEnd="132dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/betting" />
+            android:textSize="15sp" />
 
         <Button
             android:id="@+id/betting"
-            android:layout_width="78dp"
-            android:layout_height="35dp"
-            android:layout_marginBottom="7dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="58dp"
+            android:layout_width="160dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
             android:background="@color/colorPrimary"
             android:text="배팅하기"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textColor="#FFFFFF" />
 
-    </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
 
 </LinearLayout>

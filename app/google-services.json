@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "37023866573",
+    "firebase_url": "https://betting-8ac28.firebaseio.com",
+    "project_id": "betting-8ac28",
+    "storage_bucket": "betting-8ac28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:37023866573:android:4dc95e3944ef70f9",
+        "android_client_info": {
+          "package_name": "kr.co.keypair.votingsystem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "37023866573-e2bjqq07em3p4t4bqebhna1qunl749q8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kr.co.keypair.votingsystem",
+            "certificate_hash": "eb451d78598c603dab0d9f3fa7b4161f5cf7b15e"
+          }
+        },
+        {
+          "client_id": "37023866573-f46vjkbp128epomm0fuj7gk389rq9m18.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxDF_8B2BrC3wrmnMQk8WRPbBuYu7I06Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "37023866573-f46vjkbp128epomm0fuj7gk389rq9m18.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

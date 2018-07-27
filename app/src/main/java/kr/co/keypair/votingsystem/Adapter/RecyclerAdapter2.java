@@ -2,10 +2,12 @@ package kr.co.keypair.votingsystem.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,34 +21,32 @@ import kr.co.keypair.votingsystem.R;
 
 public class RecyclerAdapter2 extends RecyclerView.Adapter<RecyclerAdapter2.ItemViewHolder2> {
 
-    ArrayList<Item> mItems ;
+    ArrayList<Item> mItems = new ArrayList<>();
     Context context;
+    View view;
+    int resources;
 
-    public RecyclerAdapter2(Context context, ArrayList<Item> mItems) {
-
+    public RecyclerAdapter2(Context context, int resource) {
         this.context = context;
-        this.mItems = mItems;
+        this.resources = resource;
     }
 
     @Override
     public ItemViewHolder2 onCreateViewHolder(ViewGroup parent, int viewType) {
-
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_team,parent,false);
-
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_team,parent,false);
         return new ItemViewHolder2(view);
     }
 
     @Override
-    public void onBindViewHolder(ItemViewHolder2 holder, int position) {
+    public void onBindViewHolder(RecyclerAdapter2.ItemViewHolder2 holder, int position) {
         final ItemViewHolder2 holder1 = holder ;
-
-        holder.image.setImageResource(mItems.get(position).getImage());
-        holder.name.setText(mItems.get(position).getName());
-        holder.name.setOnClickListener(new View.OnClickListener() {
+        Item items = (Item)getItem(position);
+        holder.image.setImageResource(items.getImage());
+        holder.name.setText(items.getName());
+        view.findViewById(R.id.layout_team).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentTransaction transaction = ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction();
-
                 switch (holder1.getAdapterPosition()) {
                     case 0:
                         Fragment frag_DEN = new DEN();
@@ -119,6 +119,17 @@ public class RecyclerAdapter2 extends RecyclerView.Adapter<RecyclerAdapter2.Item
         });
     }
 
+    public void add(int image, String name){
+        Item items = new Item();
+        items.setImage(image);
+        items.setName(name);
+
+        mItems.add(items);
+    }
+
+    private Object getItem(int position){
+        return mItems.get(position);
+    }
     @Override
     public int getItemCount() {
         return mItems.size();

@@ -2,24 +2,20 @@ package kr.co.keypair.votingsystem.fragmentation.team_info;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import java.util.ArrayList;
-import kr.co.keypair.votingsystem.Adapter.Item;
+
 import kr.co.keypair.votingsystem.R;
 import kr.co.keypair.votingsystem.Adapter.RecyclerAdapter2;
-
 
 public class frag_team_info extends Fragment {
 
     private RecyclerAdapter2 adapter;
     private RecyclerView recyclerView;
-    private ArrayList<Item> items = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -28,11 +24,10 @@ public class frag_team_info extends Fragment {
         recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView_team_info);
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         recyclerView.setHasFixedSize(true);
-        adapter = new RecyclerAdapter2(getContext(),items);
-
+        adapter = new RecyclerAdapter2(getContext(),R.layout.item_team);
+        dataset();
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);
         return v;
 
@@ -41,23 +36,25 @@ public class frag_team_info extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+    public void dataset(){
+        adapter.add(R.drawable.den,"덴마크");
+        adapter.add(R.drawable.rus,"러시아");
+        adapter.add(R.drawable.mex,"멕시코");
+        adapter.add(R.drawable.bel,"벨기에");
+        adapter.add(R.drawable.bra,"브라질");
+        adapter.add(R.drawable.swe,"스웨덴");
+        adapter.add(R.drawable.sui,"스위스");
+        adapter.add(R.drawable.esp,"스페인");
+        adapter.add(R.drawable.arg,"아르헨티나");
+        adapter.add(R.drawable.uru,"우루과이");
+        adapter.add(R.drawable.jpn,"일본");
+        adapter.add(R.drawable.eng,"잉글랜드");
+        adapter.add(R.drawable.col,"콜롬비아");
+        adapter.add(R.drawable.cro,"크로아티아");
+        adapter.add(R.drawable.por,"포르투갈");
+        adapter.add(R.drawable.fra,"프랑스");
 
-        items.add(new Item(R.drawable.denmark,"덴마크"));
-        items.add(new Item(R.drawable.russia,"러시아"));
-        items.add(new Item(R.drawable.mexico,"멕시코"));
-        items.add(new Item(R.drawable.belgium,"벨기에"));
-        items.add(new Item(R.drawable.brasil,"브라질"));
-        items.add(new Item(R.drawable.sweden,"스웨덴"));
-        items.add(new Item(R.drawable.swiss,"스위스"));
-        items.add(new Item(R.drawable.spain,"스페인"));
-        items.add(new Item(R.drawable.argentina,"아르헨티나"));
-        items.add(new Item(R.drawable.uruguay,"우루과이"));
-        items.add(new Item(R.drawable.japan,"일본"));
-        items.add(new Item(R.drawable.england,"잉글랜드"));
-        items.add(new Item(R.drawable.colombia,"콜롬비아"));
-        items.add(new Item(R.drawable.croatia,"크로아티아"));
-        items.add(new Item(R.drawable.portugal,"포르투갈"));
-        items.add(new Item(R.drawable.france,"프랑스"));
     }
 
 }
