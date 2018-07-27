@@ -17,10 +17,9 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0x75b8EcCB3993BC5cB0501dD5B0522E95614BfDed"
         android:layout_marginTop="60dp"
         android:layout_marginLeft="10dp"
         android:textSize="14sp"
@@ -37,12 +36,11 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="17dp"
         android:layout_marginTop="150dp"
-        android:text="0.000000000000000001"
         android:textSize="15sp"
         android:textStyle="bold" />
 
