@@ -22,6 +22,7 @@ import java.math.BigInteger;
 import java.util.concurrent.ExecutionException;
 
 import kr.co.keypair.votingsystem.Betting;
+import kr.co.keypair.votingsystem.MainActivity;
 import kr.co.keypair.votingsystem.R;
 
 import static org.web3j.protocol.core.DefaultBlockParameterName.LATEST;
@@ -33,13 +34,9 @@ public class frag_my_acct extends Fragment{
     final BigInteger gasLimit = new BigInteger("200000");
     private TextView address,balance;
     private Spinner spinner;
-    private RemoteCall<String> user_address;
-    private String u_a_s;
     private String str_balance;
     private BigDecimal Default_num = new BigDecimal(1000);
     View v;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,26 +44,12 @@ public class frag_my_acct extends Fragment{
         getActivity().setTitle("내 계좌");
         v= inflater.inflate(R.layout.fragment_frag_my_acct, container, false);
 
-        // msPrikey = "627c3cced38c0068f8ac17b989fc166551dd061400998585e80fd4ef6251be07";
-        msPrikey = "b9d45277dca6b27efccb6cf8497c6036a4ccb339bc6ae5ddc9bd6a2127e5cbc4";
-        final String msContractAddr = "0x2a2a63fa747be16f3493690adf7213bfd551f729";
-        final Credentials credentials = Credentials.create(msPrikey);
         final Web3j web3 = Web3jFactory.build(new HttpService("https://rinkeby.infura.io/swGGKC97MU0pqiKuFUpA"));
-        Betting contract = Betting.load(msContractAddr, web3, credentials, gasPrice, gasLimit);
 
-        user_address = contract.getAddress();
-
-        try {
-            u_a_s = user_address.sendAsync().get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
         EthGetBalance ethGetBalance = null;
 
         try {
-            ethGetBalance = web3.ethGetBalance(u_a_s,LATEST).sendAsync().get();
+            ethGetBalance = web3.ethGetBalance(MainActivity.u_a_s,LATEST).sendAsync().get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -79,7 +62,7 @@ public class frag_my_acct extends Fragment{
         address =(TextView)v.findViewById(R.id.address);
         balance = (TextView)v.findViewById(R.id.balance);
         final BigDecimal BD = new BigDecimal(user_balance);
-        address.setText(u_a_s);
+        address.setText(MainActivity.u_a_s);
         balance.setText(str_balance);
 
         final String list[] = getResources().getStringArray(R.array.unit);

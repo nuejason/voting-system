@@ -7,6 +7,7 @@ import android.os.Bundle;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.Web3jFactory;
+import org.web3j.protocol.core.RemoteCall;
 import org.web3j.protocol.http.HttpService;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
@@ -21,6 +22,8 @@ import android.widget.TextView;
 
 
 import java.io.IOException;
+import java.math.BigInteger;
+import java.util.concurrent.ExecutionException;
 
 import kr.co.keypair.votingsystem.fragmentation.*;
 import kr.co.keypair.votingsystem.fragmentation.my_betting.frag_my_bet;
@@ -30,7 +33,7 @@ import kr.co.keypair.votingsystem.fragmentation.team_info.frag_team_info;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 
-    private final String msContractAddr = "0x0101010101010101010101010101010101010101";
+    private final String msContractAddr = "0xd53cd226a573de91fa2897b004bb6b2a9d3117be";
 
     private Fragment my_bet_frag;
     private Fragment game_frag;
@@ -39,36 +42,28 @@ public class MainActivity extends AppCompatActivity
     private Fragment tdy_bet_frag;
     private Fragment team_info_frag;
     private DataBaseHelper mDbHelper = new DataBaseHelper(this);
-
+    private RemoteCall<String> user_address;
+    public static String u_a_s;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        final BigInteger gasPrice = new BigInteger("5000000000"); // in Wei
+        final BigInteger gasLimit = new BigInteger("200000");
         //final String msPrikey = getIntent().getStringExtra("pwd");
         final String msPrikey = "b9d45277dca6b27efccb6cf8497c6036a4ccb339bc6ae5ddc9bd6a2127e5cbc4";
         Credentials credentials = Credentials.create(msPrikey);
         Web3j web3 = Web3jFactory.build(new HttpService("https://rinkeby.infura.io/swGGKC97MU0pqiKuFUpA"));
+        Betting contract = Betting.load(msContractAddr, web3, credentials, gasPrice, gasLimit);
+        user_address = contract.getAddress();
 
-        Handler handler = new Handler();
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                new Thread() {
-                    @Override
-                    public void run() {
-                        try {
-                            // call your contract here
-                            // http calls should be run on a different thread
-                        } catch (Exception e) {
-                            e.toString();
-                        }
-                    }
-                }.start();
-            }
-        });
-
-
+        try {
+            u_a_s = user_address.sendAsync().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
         try {
             mDbHelper.createDataBase();
         } catch (IOException e) {
