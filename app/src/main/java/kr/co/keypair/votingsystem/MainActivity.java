@@ -23,9 +23,9 @@ import android.widget.TextView;
 import java.io.IOException;
 
 import kr.co.keypair.votingsystem.fragmentation.*;
+import kr.co.keypair.votingsystem.fragmentation.my_betting.frag_my_bet;
 import kr.co.keypair.votingsystem.fragmentation.setting.frag_setting;
 import kr.co.keypair.votingsystem.fragmentation.team_info.frag_team_info;
-import kr.co.keypair.votingsystem.DataBaseHelper;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final String msPrikey = getIntent().getStringExtra("pwd");
+        //final String msPrikey = getIntent().getStringExtra("pwd");
+        final String msPrikey = "b9d45277dca6b27efccb6cf8497c6036a4ccb339bc6ae5ddc9bd6a2127e5cbc4";
         Credentials credentials = Credentials.create(msPrikey);
         Web3j web3 = Web3jFactory.build(new HttpService("https://rinkeby.infura.io/swGGKC97MU0pqiKuFUpA"));
 
@@ -128,7 +129,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        final FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
         // Handle navigation view item clicks here.
         int id = item.getItemId();
@@ -152,7 +153,6 @@ public class MainActivity extends AppCompatActivity
 
         transaction.addToBackStack(null);
         transaction.commit();
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

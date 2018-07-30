@@ -5,10 +5,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import kr.co.keypair.votingsystem.R;
-import android.util.Log;
-
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -21,10 +19,10 @@ import org.web3j.protocol.http.HttpService;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.concurrent.ExecutionException;
 
 import kr.co.keypair.votingsystem.Betting;
+import kr.co.keypair.votingsystem.R;
 
 import static org.web3j.protocol.core.DefaultBlockParameterName.LATEST;
 
@@ -39,8 +37,9 @@ public class frag_my_acct extends Fragment{
     private String u_a_s;
     private String str_balance;
     private BigDecimal Default_num = new BigDecimal(1000);
-    private ArrayList<String> list = new ArrayList<>();
     View v;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,22 +47,16 @@ public class frag_my_acct extends Fragment{
         getActivity().setTitle("내 계좌");
         v= inflater.inflate(R.layout.fragment_frag_my_acct, container, false);
 
-        //msPrikey = "627c3cced38c0068f8ac17b989fc166551dd061400998585e80fd4ef6251be07";
+        // msPrikey = "627c3cced38c0068f8ac17b989fc166551dd061400998585e80fd4ef6251be07";
         msPrikey = "b9d45277dca6b27efccb6cf8497c6036a4ccb339bc6ae5ddc9bd6a2127e5cbc4";
         final String msContractAddr = "0x2a2a63fa747be16f3493690adf7213bfd551f729";
-        if (msPrikey ==null){
-            Log.d("sd","asda");
-        }
         final Credentials credentials = Credentials.create(msPrikey);
-
         final Web3j web3 = Web3jFactory.build(new HttpService("https://rinkeby.infura.io/swGGKC97MU0pqiKuFUpA"));
-
         Betting contract = Betting.load(msContractAddr, web3, credentials, gasPrice, gasLimit);
 
         user_address = contract.getAddress();
 
         try {
-            //u_b_s = user_balance.sendAsync().get();
             u_a_s = user_address.sendAsync().get();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -85,53 +78,60 @@ public class frag_my_acct extends Fragment{
 
         address =(TextView)v.findViewById(R.id.address);
         balance = (TextView)v.findViewById(R.id.balance);
-        BigDecimal BD = new BigDecimal(user_balance);
+        final BigDecimal BD = new BigDecimal(user_balance);
         address.setText(u_a_s);
         balance.setText(str_balance);
 
-        list.add("Wei");
-        list.add("Kwei");
-        list.add("Ada");
-        list.add("Femtoether");
-        list.add("Gwei");
-        list.add("Shannon");
-        list.add("Nanoether");
-        list.add("Nano");
-        list.add("Szabo");
-        list.add("Microether");
-        list.add("Micro");
-        list.add("Finney");
-        list.add("Milliether");
-        list.add("Milli");
-        list.add("Ether");
-        list.add("Kether");
-        list.add("Kether");
-        list.add("Grand");
-        list.add("Einstein");
-        list.add("Mether");
-        list.add("Gether");
-        list.add("Tether");
+        final String list[] = getResources().getStringArray(R.array.unit);
 
-        //spinner와 비교하여 그에 따른 잔액 표시
         spinner = (Spinner)v.findViewById(R.id.spinner1);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, getResources().getStringArray(R.array.unit));
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerAdapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String text = spinner.getSelectedItem().toString();
-                if(text == "Kwei"){
-                    //double user_balance_d = user_balance.doubleValue() / 1000;
-                    //str_balance = "" + user_balance_d;
-                    balance.setText("aaa");
+                String balance_s = "";
+                BigDecimal Result = null, divide_num = new BigDecimal(1);
+                int index_i = 0;
+                if(text.equals(list[0])){
+                    index_i = 0;
+                }else if(text.equals(list[1]) || text.equals(list[2]) || text.equals(list[3])){
+                    index_i = 1;
+                }else if(text.equals(list[4]) || text.equals(list[5]) || text.equals(list[6])){
+                    index_i = 2;
+                }else if(text.equals(list[7]) || text.equals(list[8]) || text.equals(list[9]) || text.equals(list[10])){
+                    index_i = 3;
+                }else if(text.equals(list[11]) || text.equals(list[12]) || text.equals(list[13])){
+                    index_i = 4;
+                }else if(text.equals(list[14]) || text.equals(list[15]) || text.equals(list[16])){
+                    index_i = 5;
+                }else if(text.equals(list[17])){
+                    index_i = 6;
+                }else if(text.equals(list[18]) || text.equals(list[19]) || text.equals(list[20])){
+                    index_i = 7;
+                }else if(text.equals(list[21])){
+                    index_i = 8;
+                }else if(text.equals(list[22])){
+                    index_i = 9;
+                }else if(text.equals(list[23])){
+                    index_i = 10;
                 }
-
+                for(int i = 0; i < index_i; i++){
+                    divide_num = divide_num.multiply(Default_num);
+                }
+                Result = BD.divide(divide_num);
+                balance_s = "" + Result;
+                balance.setText(balance_s);
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
             }
         });
-
-
         return v;
     }
 
@@ -140,4 +140,3 @@ public class frag_my_acct extends Fragment{
         super.onCreate(savedInstanceState);
     }
 }
-

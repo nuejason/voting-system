@@ -10,11 +10,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import kr.co.keypair.votingsystem.R;
-import kr.co.keypair.votingsystem.Adapter.RecyclerAdapter2;
+import kr.co.keypair.votingsystem.Adapter.RecyclerAdapter_country;
 
 public class frag_team_info extends Fragment {
 
-    private RecyclerAdapter2 adapter;
+    private RecyclerAdapter_country adapter;
     private RecyclerView recyclerView;
 
     @Override
@@ -24,7 +24,7 @@ public class frag_team_info extends Fragment {
         recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView_team_info);
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         recyclerView.setHasFixedSize(true);
-        adapter = new RecyclerAdapter2(getContext(),R.layout.item_team);
+        adapter = new RecyclerAdapter_country(getContext(),R.layout.item_team);
         dataset();
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);
@@ -37,6 +37,7 @@ public class frag_team_info extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
     public void dataset(){
         adapter.add(R.drawable.den,"덴마크");
         adapter.add(R.drawable.rus,"러시아");

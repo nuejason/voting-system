@@ -1,9 +1,6 @@
 package kr.co.keypair.votingsystem.Adapter;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,14 +9,14 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import kr.co.keypair.votingsystem.R;
 
-public class RecyclerAdapter4 extends RecyclerView.Adapter<RecyclerAdapter4.ItemViewHolder> {
+public class RecyclerAdapter_player extends RecyclerView.Adapter<RecyclerAdapter_player.ItemViewHolder> {
 
-    ArrayList<Item_player> mItems = new ArrayList<>();;
+    ArrayList<Item> mItems = new ArrayList<>();
     Context context;
     int resources;
 
 
-    public RecyclerAdapter4(Context context, int resource) {
+    public RecyclerAdapter_player(Context context, int resource) {
         this.context = context;
         this.resources = resource;
     }
@@ -34,9 +31,9 @@ public class RecyclerAdapter4 extends RecyclerView.Adapter<RecyclerAdapter4.Item
     @Override
     public void onBindViewHolder(final ItemViewHolder holder, int position) {
 
-        Item_player items = (Item_player)getItem(position);
-        holder.player_name.setText(items.getName());
-        holder.player_position.setText(items.getPosition());
+        Item items = (Item)getItem(position);
+        holder.player_name.setText(items.getName1());
+        holder.player_position.setText(items.getName2());
         int num = items.getNum();
         holder.player_num.setText(String.valueOf(num));
     }
@@ -51,10 +48,10 @@ public class RecyclerAdapter4 extends RecyclerView.Adapter<RecyclerAdapter4.Item
     }
 
     public void add(String player_name, String player_position, int player_num){
-        Item_player items = new Item_player();
+        Item items = new Item();
 
-        items.setName(player_name);
-        items.setPosition(player_position);
+        items.setName1(player_name);
+        items.setName2(player_position);
         items.setNum(player_num);
         mItems.add(items);
     }

@@ -1,7 +1,6 @@
 package kr.co.keypair.votingsystem.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -13,12 +12,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
 
-import kr.co.keypair.votingsystem.MainActivity;
 import kr.co.keypair.votingsystem.R;
 import kr.co.keypair.votingsystem.fragmentation.setting.*;
-import kr.co.keypair.votingsystem.fragmentation.team_info.ARG;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
+public class RecyclerAdapter_setting extends RecyclerView.Adapter<RecyclerAdapter_setting.ItemViewHolder> {
 
     ArrayList<Item> mItems = new ArrayList<>();;
     Context context;
@@ -26,7 +23,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
     int resources;
 
 
-    public RecyclerAdapter(Context context, int resource) {
+    public RecyclerAdapter_setting(Context context, int resource) {
         this.context = context;
         this.resources = resource;
     }
@@ -44,8 +41,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
         final ItemViewHolder holder1 = holder ;
 
         Item items = (Item)getItem(position);
-        holder.image.setImageResource(items.getImage());
-        holder.name.setText(items.getName());
+        holder.image.setImageResource(items.getImage1());
+        holder.name.setText(items.getName1());
         view.findViewById(R.id.layout_menu).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,8 +79,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
 
     public void add(int image, String name){
         Item items = new Item();
-        items.setImage(image);
-        items.setName(name);
+        items.setImage1(image);
+        items.setName1(name);
 
         mItems.add(items);
     }

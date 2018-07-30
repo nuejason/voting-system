@@ -17,14 +17,14 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
 
-import kr.co.keypair.votingsystem.Adapter.RecyclerAdapter3;
+import kr.co.keypair.votingsystem.Adapter.RecyclerAdapter_game;
 import kr.co.keypair.votingsystem.DataBaseHelper;
 import kr.co.keypair.votingsystem.R;
 
 
 public class frag_tdy_bet extends Fragment {
 
-    private RecyclerAdapter3 adapter;
+    private RecyclerAdapter_game adapter;
     private RecyclerView recyclerView;
     private CalendarView calendarView;
     private String hometeam, awayteam, time,home, away;
@@ -37,7 +37,7 @@ public class frag_tdy_bet extends Fragment {
         recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView_tdy_bet);
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         recyclerView.setHasFixedSize(true);
-        adapter = new RecyclerAdapter3(getContext(),R.layout.item_game);
+        adapter = new RecyclerAdapter_game(getContext(),R.layout.item_game);
 
         adapter.clearData();
 

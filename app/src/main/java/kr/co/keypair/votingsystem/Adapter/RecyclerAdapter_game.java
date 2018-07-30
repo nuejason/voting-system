@@ -1,7 +1,7 @@
 package kr.co.keypair.votingsystem.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -15,18 +15,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
 
-import kr.co.keypair.votingsystem.BettingActivity;
+import kr.co.keypair.votingsystem.fragmentation.frag_betting;
 import kr.co.keypair.votingsystem.fragmentation.team_info.*;
 import kr.co.keypair.votingsystem.R;
 
-public class RecyclerAdapter3 extends RecyclerView.Adapter<RecyclerAdapter3.ItemViewHolder> {
+public class RecyclerAdapter_game extends RecyclerView.Adapter<RecyclerAdapter_game.ItemViewHolder> {
 
-    ArrayList<Item_game> mItems = new ArrayList<>(); ;
+    ArrayList<Item> mItems = new ArrayList<>(); ;
     Context context;
     int resources;
 
 
-    public RecyclerAdapter3(Context context, int resource) {
+    public RecyclerAdapter_game(Context context, int resource) {
         this.context = context;
         this.resources = resource;
     }
@@ -42,16 +42,16 @@ public class RecyclerAdapter3 extends RecyclerView.Adapter<RecyclerAdapter3.Item
     @Override
     public void onBindViewHolder(final ItemViewHolder holder, int position) {
 
-        Item_game items = (Item_game)getItem(position);
+        final Item items = (Item)getItem(position);
 
         holder.image1.setImageResource(items.getImage1());
         holder.image2.setImageResource(items.getImage2());
         holder.country1.setText(items.getName1());
         holder.country2.setText(items.getName2());
-        holder.times.setText(items.getTimes());
+        holder.times.setText(items.getName5());
 
-        final String frag1 = items.getFra1();
-        final String frag2 = items.getFra2();
+        final String frag1 = items.getName3();
+        final String frag2 = items.getName4();
 
         Log.d("abc",frag1);
 
@@ -113,11 +113,19 @@ public class RecyclerAdapter3 extends RecyclerView.Adapter<RecyclerAdapter3.Item
         holder.betting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, BettingActivity.class);
-                //intent.putExtra("name", name);
-                // db에서 받아서 game id(고유번호)를 넘겨줘야함
-                //그 고유번호로 배팅화면 할때 바뀔수 있도록
-                context.startActivity(intent);
+                Fragment betting_frag = new frag_betting();
+                FragmentTransaction transaction = ((AppCompatActivity)context).getSupportFragmentManager().beginTransaction();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("country1", items.getName1());
+                bundle.putString("country2", items.getName2());
+                bundle.putInt("image1", items.getImage1());
+                bundle.putInt("image2", items.getImage2());
+                betting_frag.setArguments(bundle);
+
+                transaction.replace(R.id.content, betting_frag);
+                transaction.addToBackStack(null);
+                transaction.commit();
             }
         });
 
@@ -133,14 +141,14 @@ public class RecyclerAdapter3 extends RecyclerView.Adapter<RecyclerAdapter3.Item
     }
 
     public void add(int image1,int image2, String country1, String country2, String times, String hometeam, String awayteam){
-        Item_game items = new Item_game();
+        Item items = new Item();
         items.setImage1(image1);
         items.setImage2(image2);
         items.setName1(country1);
         items.setName2(country2);
-        items.setTimes(times);
-        items.setFra1(hometeam);
-        items.setFra2(awayteam);
+        items.setName5(times);
+        items.setName3(hometeam);
+        items.setName4(awayteam);
         mItems.add(items);
     }
 

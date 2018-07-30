@@ -14,13 +14,13 @@ import android.widget.CalendarView;
 
 import android.widget.Toast;
 
-import kr.co.keypair.votingsystem.Adapter.RecyclerAdapter3;
+import kr.co.keypair.votingsystem.Adapter.RecyclerAdapter_game;
 import kr.co.keypair.votingsystem.DataBaseHelper;
 import kr.co.keypair.votingsystem.R;
 
 public class frag_game extends Fragment {
 
-    private RecyclerAdapter3 adapter;
+    private RecyclerAdapter_game adapter;
     private RecyclerView recyclerView;
     private CalendarView calendarView;
     private String hometeam, awayteam, time,home, away;
@@ -29,11 +29,11 @@ public class frag_game extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         getActivity().setTitle("경기 일정");
-        View v = inflater.inflate(R.layout.fragment_frag_game, container, false);
+        final View v = inflater.inflate(R.layout.fragment_frag_game, container, false);
         recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView_game);
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         recyclerView.setHasFixedSize(true);
-        adapter = new RecyclerAdapter3(getContext(),R.layout.item_game);
+        adapter = new RecyclerAdapter_game(getContext(),R.layout.item_game);
 
         calendarView = (CalendarView)v.findViewById(R.id.calendarView);
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -91,7 +91,6 @@ public class frag_game extends Fragment {
                 recyclerView.setAdapter(adapter);
             }
         });
-
 
 
         return v;

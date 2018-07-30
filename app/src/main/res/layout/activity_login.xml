@@ -23,7 +23,8 @@
         android:layout_marginBottom="-239dp"
         android:hint="닉네임"
         android:textColor="@color/login_hint2"
-        android:textColorHint="@color/login_hint2" />
+        android:textColorHint="@color/login_hint2"
+        android:inputType="text"/>
 
     <EditText
         android:id="@+id/login_pwd"
@@ -34,7 +35,9 @@
         android:layout_marginTop="239dp"
         android:hint="Private Key"
         android:textColor="@color/login_hint2"
-        android:textColorHint="@color/login_hint2" />
+        android:textColorHint="@color/login_hint2"
+        android:inputType="textPassword"
+        android:imeOptions="actionDone"/>
 
     <Button
         android:id="@+id/login_btn"

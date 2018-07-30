@@ -1,13 +1,10 @@
 package kr.co.keypair.votingsystem.Adapter;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,14 +16,14 @@ import kr.co.keypair.votingsystem.fragmentation.team_info.*;
 import kr.co.keypair.votingsystem.R;
 
 
-public class RecyclerAdapter2 extends RecyclerView.Adapter<RecyclerAdapter2.ItemViewHolder2> {
+public class RecyclerAdapter_country extends RecyclerView.Adapter<RecyclerAdapter_country.ItemViewHolder2> {
 
     ArrayList<Item> mItems = new ArrayList<>();
     Context context;
     View view;
     int resources;
 
-    public RecyclerAdapter2(Context context, int resource) {
+    public RecyclerAdapter_country(Context context, int resource) {
         this.context = context;
         this.resources = resource;
     }
@@ -38,11 +35,11 @@ public class RecyclerAdapter2 extends RecyclerView.Adapter<RecyclerAdapter2.Item
     }
 
     @Override
-    public void onBindViewHolder(RecyclerAdapter2.ItemViewHolder2 holder, int position) {
+    public void onBindViewHolder(RecyclerAdapter_country.ItemViewHolder2 holder, int position) {
         final ItemViewHolder2 holder1 = holder ;
         Item items = (Item)getItem(position);
-        holder.image.setImageResource(items.getImage());
-        holder.name.setText(items.getName());
+        holder.image.setImageResource(items.getImage1());
+        holder.name.setText(items.getName1());
         view.findViewById(R.id.layout_team).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -121,8 +118,8 @@ public class RecyclerAdapter2 extends RecyclerView.Adapter<RecyclerAdapter2.Item
 
     public void add(int image, String name){
         Item items = new Item();
-        items.setImage(image);
-        items.setName(name);
+        items.setImage1(image);
+        items.setName1(name);
 
         mItems.add(items);
     }

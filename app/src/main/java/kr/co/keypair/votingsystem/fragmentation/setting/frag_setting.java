@@ -6,18 +6,16 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import kr.co.keypair.votingsystem.Adapter.Item;
-import kr.co.keypair.votingsystem.Adapter.RecyclerAdapter;
+
+import kr.co.keypair.votingsystem.Adapter.RecyclerAdapter_setting;
 import kr.co.keypair.votingsystem.R;
-import android.support.v7.widget.DefaultItemAnimator;
+
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import java.util.ArrayList;
-
 public class frag_setting extends Fragment{
 
-    private RecyclerAdapter adapter;
+    private RecyclerAdapter_setting adapter;
     private RecyclerView recyclerView;
 
     @Override
@@ -27,7 +25,7 @@ public class frag_setting extends Fragment{
         recyclerView = (RecyclerView) v.findViewById(R.id.recyclerView_setting);
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         recyclerView.setHasFixedSize(true);
-        adapter = new RecyclerAdapter(getContext(),R.layout.item);
+        adapter = new RecyclerAdapter_setting(getContext(),R.layout.item);
         dataset();
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(mLayoutManager);

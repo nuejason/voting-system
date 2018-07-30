@@ -12,13 +12,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import kr.co.keypair.votingsystem.Adapter.RecyclerAdapter4;
+import kr.co.keypair.votingsystem.Adapter.RecyclerAdapter_player;
 import kr.co.keypair.votingsystem.DataBaseHelper;
 import kr.co.keypair.votingsystem.R;
 
 public class ENG extends Fragment {
 
-    private RecyclerAdapter4 adapter;
+    private RecyclerAdapter_player adapter;
     private RecyclerView recyclerView;
     private ImageView country_flag;
     private TextView country_name, fifa_code, league, age_avg, height_avg, price_total, price_avg, fifa_rank, coach, captain;
@@ -33,7 +33,7 @@ public class ENG extends Fragment {
         recyclerView = (RecyclerView) v.findViewById(R.id.player_list);
         recyclerView.addItemDecoration(new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL));
         recyclerView.setHasFixedSize(true);
-        adapter = new RecyclerAdapter4(getContext(),R.layout.item_player);
+        adapter = new RecyclerAdapter_player(getContext(),R.layout.item_player);
 
         final DataBaseHelper mDbHelper= new DataBaseHelper(getContext());
 
