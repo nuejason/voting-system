@@ -121,6 +121,7 @@ public class RecyclerAdapter_game extends RecyclerView.Adapter<RecyclerAdapter_g
                 bundle.putString("country2", items.getName2());
                 bundle.putInt("image1", items.getImage1());
                 bundle.putInt("image2", items.getImage2());
+                bundle.putInt("game_id",items.getNum());
                 betting_frag.setArguments(bundle);
 
                 transaction.replace(R.id.content, betting_frag);
@@ -140,8 +141,9 @@ public class RecyclerAdapter_game extends RecyclerView.Adapter<RecyclerAdapter_g
         return mItems.get(position);
     }
 
-    public void add(int image1,int image2, String country1, String country2, String times, String hometeam, String awayteam){
+    public void add(int num, int image1,int image2, String country1, String country2, String times, String hometeam, String awayteam){
         Item items = new Item();
+        items.setNum(num);
         items.setImage1(image1);
         items.setImage2(image2);
         items.setName1(country1);
