@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -15,6 +17,7 @@ import org.web3j.protocol.Web3j;
 import org.web3j.protocol.Web3jFactory;
 import org.web3j.protocol.core.RemoteCall;
 import org.web3j.protocol.core.methods.response.EthGetBalance;
+import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import org.web3j.protocol.http.HttpService;
 
 import java.math.BigDecimal;
@@ -28,14 +31,13 @@ import kr.co.keypair.votingsystem.R;
 import static org.web3j.protocol.core.DefaultBlockParameterName.LATEST;
 
 public class frag_my_acct extends Fragment{
-
-    private String msPrikey;
-    final BigInteger gasPrice = new BigInteger("5000000000"); // in Wei
-    final BigInteger gasLimit = new BigInteger("200000");
     private TextView address,balance;
     private Spinner spinner;
     private String str_balance;
     private BigDecimal Default_num = new BigDecimal(1000);
+    private TextView total;    //
+    private EditText editText;//
+    private Button button;
     View v;
 
     @Override
@@ -44,12 +46,10 @@ public class frag_my_acct extends Fragment{
         getActivity().setTitle("내 계좌");
         v= inflater.inflate(R.layout.fragment_frag_my_acct, container, false);
 
-        final Web3j web3 = Web3jFactory.build(new HttpService("https://rinkeby.infura.io/swGGKC97MU0pqiKuFUpA"));
-
         EthGetBalance ethGetBalance = null;
 
         try {
-            ethGetBalance = web3.ethGetBalance(MainActivity.u_a_s,LATEST).sendAsync().get();
+            ethGetBalance = MainActivity.web3.ethGetBalance(MainActivity.u_a_s,LATEST).sendAsync().get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -115,6 +115,50 @@ public class frag_my_acct extends Fragment{
 
             }
         });
+
+        //여기부터 테스트
+
+        BigInteger Total_money = null;
+        total = (TextView)v.findViewById(R.id.total);
+        MainActivity.contract.addGame(BigInteger.valueOf(0),"h1","a1","180730");
+
+
+        editText = v.findViewById(R.id.editText);
+        button = v.findViewById(R.id.button);
+
+
+
+
+        button.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BigInteger Bet_money = null;
+                Bet_money = new BigInteger(editText.getText().toString());
+                RemoteCall<TransactionReceipt> remoteCall = MainActivity.contract.betting(BigInteger.valueOf(0),Bet_money,BigInteger.valueOf(1),Bet_money);
+                try {
+                    TransactionReceipt receipt = remoteCall.sendAsync().get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+                RemoteCall<BigInteger> Total_money_r;
+                String total_money_s = null;
+                Total_money_r = MainActivity.contract.getMyTotalBettingMoney();
+                try {
+                    total_money_s = "" +Total_money_r.sendAsync().get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+
+                total.setText(total_money_s);
+            }
+        });
+
+
+
         return v;
     }
 

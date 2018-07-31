@@ -44,17 +44,19 @@ public class MainActivity extends AppCompatActivity
     private DataBaseHelper mDbHelper = new DataBaseHelper(this);
     private RemoteCall<String> user_address;
     public static String u_a_s;
+    public static Betting contract;
+    public static Web3j web3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final BigInteger gasPrice = new BigInteger("5000000000"); // in Wei
-        final BigInteger gasLimit = new BigInteger("200000");
+        final BigInteger gasLimit = new BigInteger("3000000");
         //final String msPrikey = getIntent().getStringExtra("pwd");
-        final String msPrikey = "b9d45277dca6b27efccb6cf8497c6036a4ccb339bc6ae5ddc9bd6a2127e5cbc4";
+        final String msPrikey = "627c3cced38c0068f8ac17b989fc166551dd061400998585e80fd4ef6251be07";
         Credentials credentials = Credentials.create(msPrikey);
-        Web3j web3 = Web3jFactory.build(new HttpService("https://rinkeby.infura.io/swGGKC97MU0pqiKuFUpA"));
-        Betting contract = Betting.load(msContractAddr, web3, credentials, gasPrice, gasLimit);
+        web3 = Web3jFactory.build(new HttpService("https://rinkeby.infura.io/swGGKC97MU0pqiKuFUpA"));
+        contract = Betting.load(msContractAddr, web3, credentials, gasPrice, gasLimit);
         user_address = contract.getAddress();
 
         try {
@@ -152,6 +154,4 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
 }
