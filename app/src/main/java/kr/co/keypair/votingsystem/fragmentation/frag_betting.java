@@ -16,6 +16,8 @@ import org.web3j.protocol.core.RemoteCall;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import java.math.BigInteger;
 import java.util.concurrent.ExecutionException;
+
+import kr.co.keypair.votingsystem.Betting;
 import kr.co.keypair.votingsystem.MainActivity;
 import kr.co.keypair.votingsystem.R;
 
@@ -38,7 +40,6 @@ public class frag_betting extends Fragment {
                              Bundle savedInstanceState) {
         getActivity().setTitle("배팅하기");
         v = inflater.inflate(R.layout.fragment_frag_betting, container, false);
-
         Bundle extra = getArguments();
         int image1 = extra.getInt("image1");
         int image2 = extra.getInt("image2");
