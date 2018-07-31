@@ -66,9 +66,9 @@ public class frag_game extends Fragment {
 
                     for(int i=0;i<game.getCount();i++) {
                         id = game.getInt(0);
-                        time = game.getString(3);
-                        hometeam = game.getString(4);
-                        awayteam = game.getString(5);
+                        time = game.getString(2);
+                        hometeam = game.getString(3);
+                        awayteam = game.getString(4);
 
                         int id1 = getContext().getResources().getIdentifier(hometeam.toLowerCase(), "drawable", getContext().getPackageName());
                         int id2 = getContext().getResources().getIdentifier(awayteam.toLowerCase(), "drawable", getContext().getPackageName());

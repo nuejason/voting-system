@@ -24,6 +24,7 @@ import java.math.BigInteger;
 import java.util.concurrent.ExecutionException;
 
 import kr.co.keypair.votingsystem.Betting;
+import kr.co.keypair.votingsystem.MainActivity;
 import kr.co.keypair.votingsystem.R;
 
 public class frag_betting extends Fragment {
@@ -45,12 +46,18 @@ public class frag_betting extends Fragment {
                              Bundle savedInstanceState) {
         getActivity().setTitle("배팅하기");
         v = inflater.inflate(R.layout.fragment_frag_betting, container, false);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 28bb113164d4811ba1fe26da458073445804b91e
         msPrikey = "627c3cced38c0068f8ac17b989fc166551dd061400998585e80fd4ef6251be07";
         final String msContractAddr = "0xd53cd226a573de91fa2897b004bb6b2a9d3117be";
         final Credentials credentials = Credentials.create(msPrikey);
         final Web3j web3 = Web3jFactory.build(new HttpService("https://rinkeby.infura.io/swGGKC97MU0pqiKuFUpA"));
         final Betting contract = Betting.load(msContractAddr, web3, credentials, gasPrice, gasLimit);
+>>>>>>> 7288f6a63fa3c25b476998191c20b30b31004ca4
 
         Bundle extra = getArguments();
         int image1 = extra.getInt("image1");
@@ -73,8 +80,8 @@ public class frag_betting extends Fragment {
 
         text_total_money = (TextView)v.findViewById(R.id.current_money);
 
-        contract.addGame(BigInteger.valueOf(0),"URU","POR","2018/06/30");
-        total_money = contract.getBettingMoneyByGameid(BigInteger.valueOf(game_id));
+        MainActivity.contract.addGame(BigInteger.valueOf(0),"URU","POR","2018/06/30");
+        total_money = MainActivity.contract.getBettingMoneyByGameid(BigInteger.valueOf(game_id));
 
         try {
             total = "" + total_money.sendAsync().get() + "  WEI";
@@ -93,7 +100,7 @@ public class frag_betting extends Fragment {
                 edit_my_money = (EditText)v.findViewById(R.id.money);
                 BigInteger Bet_money = null;
                 Bet_money = new BigInteger(edit_my_money.getText().toString());
-                RemoteCall<TransactionReceipt> remoteCall = contract.betting(BigInteger.valueOf(0),Bet_money,BigInteger.valueOf(1),Bet_money);
+                RemoteCall<TransactionReceipt> remoteCall = MainActivity.contract.betting(BigInteger.valueOf(0),Bet_money,BigInteger.valueOf(1),Bet_money);
 
                 try {
                     TransactionReceipt receipt = remoteCall.sendAsync().get();

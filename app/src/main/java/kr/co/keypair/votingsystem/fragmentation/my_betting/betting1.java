@@ -57,16 +57,10 @@ public class betting1 extends Fragment {
 
         String total_money, money;
 
-        msPrikey = "627c3cced38c0068f8ac17b989fc166551dd061400998585e80fd4ef6251be07";
-        final String msContractAddr = "0xd53cd226a573de91fa2897b004bb6b2a9d3117be";
-        final Credentials credentials = Credentials.create(msPrikey);
-        final Web3j web3 = Web3jFactory.build(new HttpService("https://rinkeby.infura.io/swGGKC97MU0pqiKuFUpA"));
-        Betting contract = Betting.load(msContractAddr, web3, credentials, gasPrice, gasLimit);
-
-        //contract를 통해서game id를 받아온다
+        ///contract를 통해서game id를 받아온다
         //BigInteger game_id = contract.
 
-        //total_money = contract.getBettingMoneyByGameid(BigInteger.valueOf(game_id));
+        //total_money =  MainActivity.contract.getBettingMoneyByGameid(BigInteger.valueOf(game_id));
         /*
         try {
             //total = "" + total_money.sendAsync().get() + "  WEI";
