@@ -38,6 +38,8 @@ public class frag_betting extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // this is test code from kyu
+
         getActivity().setTitle("배팅하기");
         v = inflater.inflate(R.layout.fragment_frag_betting, container, false);
         Bundle extra = getArguments();
