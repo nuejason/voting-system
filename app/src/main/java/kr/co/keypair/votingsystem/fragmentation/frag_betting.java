@@ -3,11 +3,6 @@ package kr.co.keypair.votingsystem.fragmentation;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +12,6 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.astuetz.PagerSlidingTabStrip;
 
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
@@ -32,8 +25,6 @@ import java.util.concurrent.ExecutionException;
 
 import kr.co.keypair.votingsystem.Betting;
 import kr.co.keypair.votingsystem.R;
-import kr.co.keypair.votingsystem.fragmentation.my_betting.betting1;
-import kr.co.keypair.votingsystem.fragmentation.my_betting.betting2;
 
 public class frag_betting extends Fragment {
 
@@ -54,6 +45,7 @@ public class frag_betting extends Fragment {
                              Bundle savedInstanceState) {
         getActivity().setTitle("배팅하기");
         v = inflater.inflate(R.layout.fragment_frag_betting, container, false);
+
         msPrikey = "627c3cced38c0068f8ac17b989fc166551dd061400998585e80fd4ef6251be07";
         final String msContractAddr = "0xd53cd226a573de91fa2897b004bb6b2a9d3117be";
         final Credentials credentials = Credentials.create(msPrikey);
