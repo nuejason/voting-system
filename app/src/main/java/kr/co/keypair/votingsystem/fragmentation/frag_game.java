@@ -24,6 +24,7 @@ public class frag_game extends Fragment {
     private RecyclerView recyclerView;
     private CalendarView calendarView;
     private String hometeam, awayteam, time,home, away;
+    private int id;
 
 
     @Override
@@ -64,6 +65,7 @@ public class frag_game extends Fragment {
                     Cursor country_name;
 
                     for(int i=0;i<game.getCount();i++) {
+                        id = game.getInt(0);
                         time = game.getString(3);
                         hometeam = game.getString(4);
                         awayteam = game.getString(5);
@@ -81,7 +83,7 @@ public class frag_game extends Fragment {
                         away = country_name.getString(1);
                         country_name.close();
 
-                        adapter.add(id1,id2, home, away, time, hometeam, awayteam);
+                        adapter.add(id, id1,id2, home, away, time, hometeam, awayteam);
                         game.moveToNext();
 
                     }

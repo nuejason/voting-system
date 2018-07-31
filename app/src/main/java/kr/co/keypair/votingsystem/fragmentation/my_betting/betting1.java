@@ -15,6 +15,7 @@ import org.web3j.protocol.Web3jFactory;
 import org.web3j.protocol.http.HttpService;
 
 import java.math.BigInteger;
+import java.util.concurrent.ExecutionException;
 
 import kr.co.keypair.votingsystem.Adapter.RecyclerAdapter_betting1;
 import kr.co.keypair.votingsystem.Adapter.RecyclerAdapter_country;
@@ -54,14 +55,28 @@ public class betting1 extends Fragment {
 
     public void dataset() {
 
-        msPrikey = "b9d45277dca6b27efccb6cf8497c6036a4ccb339bc6ae5ddc9bd6a2127e5cbc4";
-        final String msContractAddr = "0x2a2a63fa747be16f3493690adf7213bfd551f729";
+        String total_money, money;
+
+        msPrikey = "627c3cced38c0068f8ac17b989fc166551dd061400998585e80fd4ef6251be07";
+        final String msContractAddr = "0xd53cd226a573de91fa2897b004bb6b2a9d3117be";
         final Credentials credentials = Credentials.create(msPrikey);
         final Web3j web3 = Web3jFactory.build(new HttpService("https://rinkeby.infura.io/swGGKC97MU0pqiKuFUpA"));
         Betting contract = Betting.load(msContractAddr, web3, credentials, gasPrice, gasLimit);
 
+        //contract를 통해서game id를 받아온다
+        //BigInteger game_id = contract.
 
+        //total_money = contract.getBettingMoneyByGameid(BigInteger.valueOf(game_id));
+        /*
+        try {
+            //total = "" + total_money.sendAsync().get() + "  WEI";
 
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        */
         //adapter.add();
 
     }
