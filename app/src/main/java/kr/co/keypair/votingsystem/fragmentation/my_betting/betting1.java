@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import org.web3j.crypto.Credentials;
 import org.web3j.protocol.Web3j;
 import org.web3j.protocol.Web3jFactory;
+import org.web3j.protocol.core.RemoteCall;
 import org.web3j.protocol.http.HttpService;
 
 import java.math.BigInteger;
@@ -21,7 +22,10 @@ import kr.co.keypair.votingsystem.Adapter.RecyclerAdapter_betting1;
 import kr.co.keypair.votingsystem.Adapter.RecyclerAdapter_country;
 import kr.co.keypair.votingsystem.Adapter.RecyclerAdapter_setting;
 import kr.co.keypair.votingsystem.Betting;
+import kr.co.keypair.votingsystem.MainActivity;
 import kr.co.keypair.votingsystem.R;
+
+import static org.web3j.protocol.core.DefaultBlockParameterName.LATEST;
 
 public class betting1 extends Fragment {
 
@@ -56,6 +60,17 @@ public class betting1 extends Fragment {
     public void dataset() {
 
         String total_money, money;
+
+        /*BigInteger len = new BigInteger();
+
+        try {
+            len = MainActivity.contract.getBetByAddressLength().sendAsync().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        //BigInteger big_len = new BigInteger(len);
 
         ///contract를 통해서game id를 받아온다
         //BigInteger game_id = contract.

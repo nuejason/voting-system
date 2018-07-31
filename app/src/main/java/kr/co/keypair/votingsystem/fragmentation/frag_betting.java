@@ -12,23 +12,12 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
-<<<<<<< HEAD
-=======
-
-import org.web3j.crypto.Credentials;
-import org.web3j.protocol.Web3j;
-import org.web3j.protocol.Web3jFactory;
->>>>>>> 9a429ec9c97ef8faf4a3218bd43c9bddd69d5f0f
 import org.web3j.protocol.core.RemoteCall;
 import org.web3j.protocol.core.methods.response.TransactionReceipt;
 import java.math.BigInteger;
 import java.util.concurrent.ExecutionException;
 import kr.co.keypair.votingsystem.MainActivity;
 import kr.co.keypair.votingsystem.R;
-<<<<<<< HEAD
-
-=======
->>>>>>> 9a429ec9c97ef8faf4a3218bd43c9bddd69d5f0f
 
 public class frag_betting extends Fragment {
 
@@ -49,21 +38,6 @@ public class frag_betting extends Fragment {
                              Bundle savedInstanceState) {
         getActivity().setTitle("배팅하기");
         v = inflater.inflate(R.layout.fragment_frag_betting, container, false);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 28bb113164d4811ba1fe26da458073445804b91e
-        msPrikey = "627c3cced38c0068f8ac17b989fc166551dd061400998585e80fd4ef6251be07";
-        final String msContractAddr = "0xd53cd226a573de91fa2897b004bb6b2a9d3117be";
-        final Credentials credentials = Credentials.create(msPrikey);
-        final Web3j web3 = Web3jFactory.build(new HttpService("https://rinkeby.infura.io/swGGKC97MU0pqiKuFUpA"));
-        final Betting contract = Betting.load(msContractAddr, web3, credentials, gasPrice, gasLimit);
->>>>>>> 7288f6a63fa3c25b476998191c20b30b31004ca4
->>>>>>> 9a429ec9c97ef8faf4a3218bd43c9bddd69d5f0f
 
         Bundle extra = getArguments();
         int image1 = extra.getInt("image1");
