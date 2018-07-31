@@ -33,7 +33,7 @@ import kr.co.keypair.votingsystem.fragmentation.team_info.frag_team_info;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 
-    private final String msContractAddr = "0xd53cd226a573de91fa2897b004bb6b2a9d3117be";
+    private final String msContractAddr = "0xd5a9c34e9c962bea35da160988e757354839b133";
 
     private Fragment my_bet_frag;
     private Fragment game_frag;
