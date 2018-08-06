@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 import org.web3j.protocol.core.RemoteCall;
@@ -33,6 +34,7 @@ public class frag_betting extends Fragment {
     private TextView text_total_money;
     private EditText edit_my_money;
     private RemoteCall<BigInteger> total_money;
+    private BigInteger flag = null;
 
     @Override
 
@@ -63,7 +65,7 @@ public class frag_betting extends Fragment {
 
         text_total_money = (TextView)v.findViewById(R.id.current_money);
 
-        MainActivity.contract.addGame(BigInteger.valueOf(0),"URU","POR","2018/06/30");
+
         total_money = MainActivity.contract.getBettingMoneyByGameid(BigInteger.valueOf(game_id));
 
         try {
@@ -83,7 +85,23 @@ public class frag_betting extends Fragment {
                 edit_my_money = (EditText)v.findViewById(R.id.money);
                 BigInteger Bet_money = null;
                 Bet_money = new BigInteger(edit_my_money.getText().toString());
-                RemoteCall<TransactionReceipt> remoteCall = MainActivity.contract.betting(BigInteger.valueOf(0),Bet_money,BigInteger.valueOf(1),Bet_money);
+               //button클릭 되면 선택되도록 고치기
+                RadioGroup rg = (RadioGroup)v.findViewById(R.id.radioGroup1);
+                RadioButton country1 = (RadioButton)v.findViewById(R.id.country1);
+                RadioButton country2 = (RadioButton)v.findViewById(R.id.country2);
+
+                rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        switch(checkedId){
+                            case R.id.country1 : flag = BigInteger.valueOf(1);
+                            case R.id.country2 : flag = BigInteger.valueOf(2);
+                        }
+                    }
+                });
+
+                //나중에 고치기
+                RemoteCall<TransactionReceipt> remoteCall = MainActivity.contract.betting(BigInteger.valueOf(0),Bet_money,flag,Bet_money);
 
                 try {
                     TransactionReceipt receipt = remoteCall.sendAsync().get();

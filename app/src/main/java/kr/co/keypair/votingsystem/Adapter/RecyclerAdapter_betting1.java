@@ -41,9 +41,15 @@ public class RecyclerAdapter_betting1 extends RecyclerView.Adapter<RecyclerAdapt
         final ItemViewHolder holder1 = holder ;
 
         Item items = (Item)getItem(position);
-        holder.name1.append(items.getName1());
-        holder.name2.append(items.getName2());
-        holder.name3.append(items.getName3());
+        holder.image1.setImageResource(items.getImage1());
+        holder.image2.setImageResource(items.getImage2());
+        holder.country1.setText(items.getName1());
+        holder.country2.setText(items.getName2());
+        holder.date.setText(items.getName3());
+        holder.time.setText(items.getName4());
+        holder.name1.append(items.getName5());
+        holder.name2.append(items.getName6());
+        holder.name3.append(items.getName7());
 
     }
 
@@ -56,21 +62,36 @@ public class RecyclerAdapter_betting1 extends RecyclerView.Adapter<RecyclerAdapt
         return mItems.get(position);
     }
 
-    public void add(String name1, String name2, String name3){
+    public void add(int image1, int image2, String country1, String country2, String date, String time,  String name1, String name2, String name3){
         Item items = new Item();
-        items.setName1(name1);
-        items.setName2(name2);
-        items.setName3(name3);
+
+        items.setImage1(image1);
+        items.setImage2(image2);
+        items.setName1(country1);
+        items.setName2(country2);
+        items.setName3(date);
+        items.setName4(time);
+        items.setName5(name1);
+        items.setName6(name2);
+        items.setName7(name3);
+
 
         mItems.add(items);
     }
 
     class ItemViewHolder extends RecyclerView.ViewHolder{
-        private TextView name1, name2, name3;
+        private TextView country1, country2, date,time, name1, name2, name3;
+        private ImageView image1,image2;
 
         public ItemViewHolder(View itemView) {
             super(itemView);
 
+            image1 = (ImageView) itemView.findViewById(R.id.image1);
+            image2 = (ImageView) itemView.findViewById(R.id.image2);
+            country1 = (TextView) itemView.findViewById(R.id.country1);
+            country2 = (TextView) itemView.findViewById(R.id.country2);
+            date = (TextView) itemView.findViewById(R.id.date);
+            time = (TextView) itemView.findViewById(R.id.time);
             name1 =(TextView)itemView.findViewById(R.id.betting_country);
             name2 = (TextView) itemView.findViewById(R.id.total_money);
             name3 = (TextView) itemView.findViewById(R.id.my_money);

@@ -1,4 +1,5 @@
 package kr.co.keypair.votingsystem;
+import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import org.web3j.protocol.Web3jFactory;
 import org.web3j.protocol.core.RemoteCall;
 import org.web3j.protocol.http.HttpService;
 import android.support.design.widget.FloatingActionButton;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -19,10 +21,13 @@ import android.support.v4.app.Fragment;
 import android.widget.TextView;
 
 
+import com.kenai.jffi.Main;
+
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.concurrent.ExecutionException;
 
+import kr.co.keypair.votingsystem.Admin.Admin;
 import kr.co.keypair.votingsystem.fragmentation.*;
 import kr.co.keypair.votingsystem.fragmentation.my_betting.frag_my_bet;
 import kr.co.keypair.votingsystem.fragmentation.setting.frag_setting;
@@ -31,7 +36,7 @@ import kr.co.keypair.votingsystem.fragmentation.team_info.frag_team_info;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 
-    private final String msContractAddr = "0xd5a9c34e9c962bea35da160988e757354839b133";
+    private final String msContractAddr = "0x253d74d9ece7ccdabc74129c27ec85b1f708b570";
 
     private Fragment my_bet_frag;
     private Fragment game_frag;
@@ -57,6 +62,12 @@ public class MainActivity extends AppCompatActivity
         contract = Betting.load(msContractAddr, web3, credentials, gasPrice, gasLimit);
         user_address = contract.getAddress();
 
+        String pwd = getIntent().getStringExtra("pwd");
+        if(Integer.parseInt(pwd)==123) {
+            Intent Intent = new Intent(MainActivity.this, Admin.class);
+            Log.d("abc", "a");
+            MainActivity.this.startActivity(Intent);
+        }
         try {
             u_a_s = user_address.sendAsync().get();
         } catch (InterruptedException e) {
@@ -64,6 +75,8 @@ public class MainActivity extends AppCompatActivity
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+
+
         try {
             mDbHelper.createDataBase();
         } catch (IOException e) {
