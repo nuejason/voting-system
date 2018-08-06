@@ -43,10 +43,18 @@ public class LoginActivity extends AppCompatActivity {
                         new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT));
                 mprogress.show();
 
+<<<<<<< HEAD
                 Intent Intent = new Intent(LoginActivity.this, MainActivity.class);
                 Intent.putExtra("name", name);
                 Intent.putExtra("pwd", pwd);
                 LoginActivity.this.startActivity(Intent);
+=======
+                    Intent Intent = new Intent(LoginActivity.this, MainActivity.class);
+                    Intent.putExtra("name", name);
+                    Intent.putExtra("pwd", pwd);
+                    Log.d("abc","b");
+                    LoginActivity.this.startActivity(Intent);
+>>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
             }
         });
     }

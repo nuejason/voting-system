@@ -17,7 +17,7 @@ public class DataBaseHelper extends SQLiteOpenHelper
 {
     private static String TAG = "DataBaseHelper"; //Logcat에 출력할 태그이름
     private static String DB_PATH = "/data/data/kr.co.keypair.votingsystem/databases/";
-    private static String DB_NAME ="country_info.db"; // 데이터베이스 이름
+    private static String DB_NAME ="database.db"; // 데이터베이스 이름
     private final Context mContext;
     SQLiteDatabase db;
 
@@ -51,14 +51,13 @@ public class DataBaseHelper extends SQLiteOpenHelper
         }
     }
 
-    ///data/data/your package/databases/Da Name <-이 경로에서 데이터베이스가 존재하는지 확인한다
+
     private boolean checkDataBase()
     {
         File dbFile = new File(DB_PATH + DB_NAME);
         return dbFile.exists();
     }
 
-    //assets폴더에서 데이터베이스를 복사한다.
     private void copyDataBase() throws IOException
     {
         InputStream mInput = mContext.getAssets().open(DB_NAME);
@@ -92,6 +91,13 @@ public class DataBaseHelper extends SQLiteOpenHelper
         Cursor game_date = db.rawQuery("select * from GAME_INFO where DATE = "+"'"+date+"'", null);
 
         return game_date;
+    }
+
+    public Cursor Game_info(int game_id){
+        db= getReadableDatabase();
+        Cursor game_info = db.rawQuery("select * from GAME_INFO where GAMEID = "+"'"+game_id+"'", null);
+
+        return game_info;
     }
 
 

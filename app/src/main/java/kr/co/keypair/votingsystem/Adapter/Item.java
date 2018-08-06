@@ -6,7 +6,10 @@ public class Item {
     private String name3;
     private String name4;
     private String name5;
-    private String times;
+    private String name6;
+    private String name7;
+    private String name8;
+    private String name9;
     private int num;
     private int image1;
     private int image2;
@@ -42,6 +45,34 @@ public class Item {
     }
     public void setName5(String name5) {
         this.name5 = name5;
+    }
+
+    public String getName6() {
+        return name6;
+    }
+    public void setName6(String name6) {
+        this.name6 = name6;
+    }
+
+    public String getName7() {
+        return name7;
+    }
+    public void setName7(String name7) {
+        this.name7 = name7;
+    }
+
+    public String getName8() {
+        return name8;
+    }
+    public void setName8(String name8) {
+        this.name8 = name8;
+    }
+
+    public String getName9() {
+        return name9;
+    }
+    public void setName9(String name9) {
+        this.name9 = name9;
     }
 
     public int getNum() { return num;}

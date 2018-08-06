@@ -8,10 +8,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< HEAD
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+=======
+import android.widget.EditText;
+>>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
 
 import com.kenai.jffi.Main;
 
@@ -31,6 +35,7 @@ import kr.co.keypair.votingsystem.MainActivity;
 import kr.co.keypair.votingsystem.R;
 
 public class add_game extends Fragment {
+<<<<<<< HEAD
     private EditText editText_HomeTeam, editText_AwayTeam, editText_Date, editText_Time;
     private TextView textView_GameId;
     private Button button;
@@ -40,6 +45,10 @@ public class add_game extends Fragment {
     public String GameID_s;
     View v;
 
+=======
+
+    View v;
+>>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +58,7 @@ public class add_game extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+<<<<<<< HEAD
         v = inflater.inflate(R.layout.fragment_add_game, container, false);
         button = v.findViewById(R.id.button1);
 
@@ -115,6 +125,11 @@ public class add_game extends Fragment {
             }
         });
         return v;
+=======
+         v =inflater.inflate(R.layout.fragment_add_game, container, false);
+        //EditText abc = (getActivity().findViewById(R.id.current_money);
+     return v;
+>>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
     }
 
 }

@@ -1,5 +1,8 @@
 package kr.co.keypair.votingsystem;
+<<<<<<< HEAD
 import android.app.Activity;
+=======
+>>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
 import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +24,8 @@ import android.view.MenuItem;
 import android.support.v4.app.Fragment;
 import android.widget.TextView;
 
+
+import com.kenai.jffi.Main;
 
 import java.io.IOException;
 import java.math.BigInteger;
@@ -62,11 +67,19 @@ public class MainActivity extends AppCompatActivity
         user_address = contract.getAddress();
 
         String pwd = getIntent().getStringExtra("pwd");
+<<<<<<< HEAD
         if(Integer.parseInt(pwd)==123){
             Intent Intent = new Intent(MainActivity.this, Admin.class);
             MainActivity.this.startActivity(Intent);
         }
 
+=======
+        if(Integer.parseInt(pwd)==123) {
+            Intent Intent = new Intent(MainActivity.this, Admin.class);
+            Log.d("abc", "a");
+            MainActivity.this.startActivity(Intent);
+        }
+>>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
         try {
             u_a_s = user_address.sendAsync().get();
         } catch (InterruptedException e) {
@@ -74,6 +87,8 @@ public class MainActivity extends AppCompatActivity
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+
+
         try {
             mDbHelper.createDataBase();
         } catch (IOException e) {
