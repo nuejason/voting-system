@@ -2,6 +2,7 @@ package kr.co.keypair.votingsystem.fragmentation;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -120,9 +121,6 @@ public class frag_my_acct extends Fragment{
 
         BigInteger Total_money = null;
         total = (TextView)v.findViewById(R.id.total);
-        MainActivity.contract.addGame(BigInteger.valueOf(0),"h1","a1","180730");
-
-
         editText = v.findViewById(R.id.editText);
         button = v.findViewById(R.id.button);
 
@@ -134,14 +132,7 @@ public class frag_my_acct extends Fragment{
             public void onClick(View v) {
                 BigInteger Bet_money = null;
                 Bet_money = new BigInteger(editText.getText().toString());
-                RemoteCall<TransactionReceipt> remoteCall = MainActivity.contract.betting(BigInteger.valueOf(0),Bet_money,BigInteger.valueOf(1),Bet_money);
-                try {
-                    TransactionReceipt receipt = remoteCall.sendAsync().get();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                }
+
                 RemoteCall<BigInteger> Total_money_r;
                 String total_money_s = null;
                 Total_money_r = MainActivity.contract.getMyTotalBettingMoney();

@@ -6,9 +6,126 @@
     tools:context=".Admin.add_result">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="GameID : "
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="60dp"
+        android:text="HomeTeam"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="60dp"
+        android:text="AwayTeam"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="180dp"
+        android:text="승부차기"
+        android:textSize="27sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="60dp"
+        android:text="VS"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="120dp"
+        android:ems="5"
+        android:gravity="center"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/editText6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="120dp"
+        android:ems="5"
+        android:gravity="center"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/editText7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="220dp"
+        android:ems="5"
+        android:gravity="center"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/editText8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="220dp"
+        android:ems="5"
+        android:gravity="center"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/editText9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="130dp"
+        android:ems="3"
+        android:gravity="center"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="결과입력"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="230dp"
+        android:text="입력"
+        android:textStyle="bold" />
 </FrameLayout>

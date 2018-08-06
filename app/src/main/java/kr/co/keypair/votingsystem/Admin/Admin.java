@@ -25,8 +25,8 @@ public class Admin extends AppCompatActivity {
     }
 
     public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
-        final int PAGE_COUNT = 3;
-        private String tabTitles[] = new String[] { "    게임 추가    ", "    결과 추가    ", "    팀 추가    "};
+        final int PAGE_COUNT = 2;
+        private String tabTitles[] = new String[] { "       게임 추가       ", "       결과 추가       ",};
 
         public SampleFragmentPagerAdapter(FragmentManager fm) {
             super(fm);
@@ -41,10 +41,8 @@ public class Admin extends AppCompatActivity {
         public Fragment getItem(int position) {
             if (position == 0) {
                 return new add_game();
-            } else if (position == 1){
-                return new add_team();
             } else{
-                return new add_team();
+                return new add_result();
             }
         }
 

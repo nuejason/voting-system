@@ -36,7 +36,6 @@
         android:hint="Private Key"
         android:textColor="@color/login_hint2"
         android:textColorHint="@color/login_hint2"
-        android:inputType="textPassword"
         android:imeOptions="actionDone"/>
 
     <Button
