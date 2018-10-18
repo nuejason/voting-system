@@ -84,15 +84,9 @@ public class Betting extends Contract {
     public static final String FUNC_GETBETTINGMONEYBYGAMEID = "getBettingMoneyByGameid";
 
     public static final String FUNC_GETGAMEIDSBYINT = "getGameIDsByint";
-<<<<<<< HEAD
 
     public static final String FUNC_GETGAMEIDSLEN = "getGameIDsLen";
 
-=======
-
-    public static final String FUNC_GETGAMEIDSLEN = "getGameIDsLen";
-
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
     public static final String FUNC_GETGAMEINFO = "getGameInfo";
 
     public static final String FUNC_GETMYTOTALBETTINGMONEY = "getMyTotalBettingMoney";
@@ -102,12 +96,11 @@ public class Betting extends Contract {
     public static final Event TRANSFER_EVENT = new Event("Transfer",
             Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}, new TypeReference<Address>() {}),
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
-    ;
 
     public static final Event APPROVAL_EVENT = new Event("Approval",
             Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}, new TypeReference<Address>() {}),
             Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
-    ;
+
 
     protected Betting(String contractAddress, Web3j web3j, Credentials credentials, BigInteger gasPrice, BigInteger gasLimit) {
         super(BINARY, contractAddress, web3j, credentials, gasPrice, gasLimit);
@@ -174,17 +167,10 @@ public class Betting extends Contract {
 
     public RemoteCall<TransactionReceipt> betting(BigInteger _gameId, BigInteger _betMoney, BigInteger _gameResult, BigInteger weiValue) {
         final Function function = new Function(
-<<<<<<< HEAD
                 FUNC_BETTING, 
                 Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint32(_gameId), 
                 new org.web3j.abi.datatypes.generated.Uint256(_betMoney), 
-                new org.web3j.abi.datatypes.generated.Uint8(_gameResult)), 
-=======
-                FUNC_BETTING,
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint32(_gameId),
-                        new org.web3j.abi.datatypes.generated.Uint256(_betMoney),
-                        new org.web3j.abi.datatypes.generated.Uint8(_gameResult)),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
+                new org.web3j.abi.datatypes.generated.Uint8(_gameResult)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function, weiValue);
     }
@@ -226,43 +212,26 @@ public class Betting extends Contract {
 
     public RemoteCall<TransactionReceipt> decreaseApproval(String _spender, BigInteger _subtractedValue) {
         final Function function = new Function(
-<<<<<<< HEAD
                 FUNC_DECREASEAPPROVAL, 
                 Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(_spender), 
-                new org.web3j.abi.datatypes.generated.Uint256(_subtractedValue)), 
-=======
-                FUNC_DECREASEAPPROVAL,
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(_spender),
-                        new org.web3j.abi.datatypes.generated.Uint256(_subtractedValue)),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
+                new org.web3j.abi.datatypes.generated.Uint256(_subtractedValue)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteCall<TransactionReceipt> increaseApproval(String _spender, BigInteger _addedValue) {
         final Function function = new Function(
-<<<<<<< HEAD
                 FUNC_INCREASEAPPROVAL, 
                 Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(_spender), 
-                new org.web3j.abi.datatypes.generated.Uint256(_addedValue)), 
-=======
-                FUNC_INCREASEAPPROVAL,
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(_spender),
-                        new org.web3j.abi.datatypes.generated.Uint256(_addedValue)),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
+                new org.web3j.abi.datatypes.generated.Uint256(_addedValue)),
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function);
     }
 
     public RemoteCall<TransactionReceipt> moneyDivision(BigInteger _gameId, BigInteger weiValue) {
         final Function function = new Function(
-<<<<<<< HEAD
                 FUNC_MONEYDIVISION, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint32(_gameId)), 
-=======
-                FUNC_MONEYDIVISION,
                 Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint32(_gameId)),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
                 Collections.<TypeReference<?>>emptyList());
         return executeRemoteCallTransaction(function, weiValue);
     }
@@ -321,15 +290,9 @@ public class Betting extends Contract {
     }
 
     public RemoteCall<Tuple5<String, BigInteger, BigInteger, BigInteger, BigInteger>> BetByAddress(String param0, BigInteger param1) {
-<<<<<<< HEAD
-        final Function function = new Function(FUNC_BETBYADDRESS, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(param0), 
-                new org.web3j.abi.datatypes.generated.Uint256(param1)), 
-=======
         final Function function = new Function(FUNC_BETBYADDRESS,
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(param0),
-                        new org.web3j.abi.datatypes.generated.Uint256(param1)),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.Address(param0), 
+                new org.web3j.abi.datatypes.generated.Uint256(param1)),
                 Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}, new TypeReference<Uint256>() {}, new TypeReference<Uint32>() {}, new TypeReference<Uint8>() {}, new TypeReference<Uint256>() {}));
         return new RemoteCall<Tuple5<String, BigInteger, BigInteger, BigInteger, BigInteger>>(
                 new Callable<Tuple5<String, BigInteger, BigInteger, BigInteger, BigInteger>>() {
@@ -337,32 +300,19 @@ public class Betting extends Contract {
                     public Tuple5<String, BigInteger, BigInteger, BigInteger, BigInteger> call() throws Exception {
                         List<Type> results = executeCallMultipleValueReturn(function);
                         return new Tuple5<String, BigInteger, BigInteger, BigInteger, BigInteger>(
-<<<<<<< HEAD
                                 (String) results.get(0).getValue(), 
                                 (BigInteger) results.get(1).getValue(), 
                                 (BigInteger) results.get(2).getValue(), 
-                                (BigInteger) results.get(3).getValue(), 
-=======
-                                (String) results.get(0).getValue(),
-                                (BigInteger) results.get(1).getValue(),
-                                (BigInteger) results.get(2).getValue(),
                                 (BigInteger) results.get(3).getValue(),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
                                 (BigInteger) results.get(4).getValue());
                     }
                 });
     }
 
     public RemoteCall<Tuple5<String, BigInteger, BigInteger, BigInteger, BigInteger>> BetByGameid(BigInteger param0, BigInteger param1) {
-<<<<<<< HEAD
         final Function function = new Function(FUNC_BETBYGAMEID, 
                 Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint32(param0), 
                 new org.web3j.abi.datatypes.generated.Uint256(param1)), 
-=======
-        final Function function = new Function(FUNC_BETBYGAMEID,
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint32(param0),
-                        new org.web3j.abi.datatypes.generated.Uint256(param1)),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
                 Arrays.<TypeReference<?>>asList(new TypeReference<Address>() {}, new TypeReference<Uint256>() {}, new TypeReference<Uint32>() {}, new TypeReference<Uint8>() {}, new TypeReference<Uint256>() {}));
         return new RemoteCall<Tuple5<String, BigInteger, BigInteger, BigInteger, BigInteger>>(
                 new Callable<Tuple5<String, BigInteger, BigInteger, BigInteger, BigInteger>>() {
@@ -370,30 +320,18 @@ public class Betting extends Contract {
                     public Tuple5<String, BigInteger, BigInteger, BigInteger, BigInteger> call() throws Exception {
                         List<Type> results = executeCallMultipleValueReturn(function);
                         return new Tuple5<String, BigInteger, BigInteger, BigInteger, BigInteger>(
-<<<<<<< HEAD
                                 (String) results.get(0).getValue(), 
                                 (BigInteger) results.get(1).getValue(), 
                                 (BigInteger) results.get(2).getValue(), 
-                                (BigInteger) results.get(3).getValue(), 
-=======
-                                (String) results.get(0).getValue(),
-                                (BigInteger) results.get(1).getValue(),
-                                (BigInteger) results.get(2).getValue(),
                                 (BigInteger) results.get(3).getValue(),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
                                 (BigInteger) results.get(4).getValue());
                     }
                 });
     }
 
     public RemoteCall<Tuple8<String, String, String, BigInteger, BigInteger, BigInteger, BigInteger, BigInteger>> games(BigInteger param0) {
-<<<<<<< HEAD
         final Function function = new Function(FUNC_GAMES, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint32(param0)), 
-=======
-        final Function function = new Function(FUNC_GAMES,
                 Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint32(param0)),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
                 Arrays.<TypeReference<?>>asList(new TypeReference<Utf8String>() {}, new TypeReference<Utf8String>() {}, new TypeReference<Utf8String>() {}, new TypeReference<Uint32>() {}, new TypeReference<Uint32>() {}, new TypeReference<Uint32>() {}, new TypeReference<Uint32>() {}, new TypeReference<Uint8>() {}));
         return new RemoteCall<Tuple8<String, String, String, BigInteger, BigInteger, BigInteger, BigInteger, BigInteger>>(
                 new Callable<Tuple8<String, String, String, BigInteger, BigInteger, BigInteger, BigInteger, BigInteger>>() {
@@ -401,23 +339,13 @@ public class Betting extends Contract {
                     public Tuple8<String, String, String, BigInteger, BigInteger, BigInteger, BigInteger, BigInteger> call() throws Exception {
                         List<Type> results = executeCallMultipleValueReturn(function);
                         return new Tuple8<String, String, String, BigInteger, BigInteger, BigInteger, BigInteger, BigInteger>(
-<<<<<<< HEAD
                                 (String) results.get(0).getValue(), 
                                 (String) results.get(1).getValue(), 
                                 (String) results.get(2).getValue(), 
                                 (BigInteger) results.get(3).getValue(), 
                                 (BigInteger) results.get(4).getValue(), 
                                 (BigInteger) results.get(5).getValue(), 
-                                (BigInteger) results.get(6).getValue(), 
-=======
-                                (String) results.get(0).getValue(),
-                                (String) results.get(1).getValue(),
-                                (String) results.get(2).getValue(),
-                                (BigInteger) results.get(3).getValue(),
-                                (BigInteger) results.get(4).getValue(),
-                                (BigInteger) results.get(5).getValue(),
                                 (BigInteger) results.get(6).getValue(),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
                                 (BigInteger) results.get(7).getValue());
                     }
                 });
@@ -438,13 +366,8 @@ public class Betting extends Contract {
     }
 
     public RemoteCall<Tuple4<BigInteger, BigInteger, BigInteger, BigInteger>> getBetByAddressInfo(BigInteger i) {
-<<<<<<< HEAD
         final Function function = new Function(FUNC_GETBETBYADDRESSINFO, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(i)), 
-=======
-        final Function function = new Function(FUNC_GETBETBYADDRESSINFO,
                 Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(i)),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint32>() {}, new TypeReference<Uint256>() {}, new TypeReference<Uint8>() {}, new TypeReference<Uint256>() {}));
         return new RemoteCall<Tuple4<BigInteger, BigInteger, BigInteger, BigInteger>>(
                 new Callable<Tuple4<BigInteger, BigInteger, BigInteger, BigInteger>>() {
@@ -452,15 +375,9 @@ public class Betting extends Contract {
                     public Tuple4<BigInteger, BigInteger, BigInteger, BigInteger> call() throws Exception {
                         List<Type> results = executeCallMultipleValueReturn(function);
                         return new Tuple4<BigInteger, BigInteger, BigInteger, BigInteger>(
-<<<<<<< HEAD
                                 (BigInteger) results.get(0).getValue(), 
                                 (BigInteger) results.get(1).getValue(), 
-                                (BigInteger) results.get(2).getValue(), 
-=======
-                                (BigInteger) results.get(0).getValue(),
-                                (BigInteger) results.get(1).getValue(),
                                 (BigInteger) results.get(2).getValue(),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
                                 (BigInteger) results.get(3).getValue());
                     }
                 });
@@ -474,49 +391,29 @@ public class Betting extends Contract {
     }
 
     public RemoteCall<BigInteger> getBettingMoneyByGameid(BigInteger _gameId) {
-<<<<<<< HEAD
         final Function function = new Function(FUNC_GETBETTINGMONEYBYGAMEID, 
                 Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint32(_gameId)), 
-=======
-        final Function function = new Function(FUNC_GETBETTINGMONEYBYGAMEID,
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint32(_gameId)),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
         return executeRemoteCallSingleValueReturn(function, BigInteger.class);
     }
 
     public RemoteCall<BigInteger> getGameIDsByint(BigInteger i) {
-<<<<<<< HEAD
-        final Function function = new Function(FUNC_GETGAMEIDSBYINT, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(i)), 
-=======
         final Function function = new Function(FUNC_GETGAMEIDSBYINT,
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(i)),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint256(i)), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint32>() {}));
         return executeRemoteCallSingleValueReturn(function, BigInteger.class);
     }
 
     public RemoteCall<BigInteger> getGameIDsLen() {
-<<<<<<< HEAD
-        final Function function = new Function(FUNC_GETGAMEIDSLEN, 
-                Arrays.<Type>asList(), 
-=======
         final Function function = new Function(FUNC_GETGAMEIDSLEN,
-                Arrays.<Type>asList(),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
+                Arrays.<Type>asList(), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint256>() {}));
         return executeRemoteCallSingleValueReturn(function, BigInteger.class);
     }
 
     public RemoteCall<Tuple5<BigInteger, BigInteger, BigInteger, BigInteger, BigInteger>> getGameInfo(BigInteger _gameId) {
-<<<<<<< HEAD
-        final Function function = new Function(FUNC_GETGAMEINFO, 
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint32(_gameId)), 
-=======
         final Function function = new Function(FUNC_GETGAMEINFO,
-                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint32(_gameId)),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
+                Arrays.<Type>asList(new org.web3j.abi.datatypes.generated.Uint32(_gameId)), 
                 Arrays.<TypeReference<?>>asList(new TypeReference<Uint32>() {}, new TypeReference<Uint32>() {}, new TypeReference<Uint32>() {}, new TypeReference<Uint32>() {}, new TypeReference<Uint8>() {}));
         return new RemoteCall<Tuple5<BigInteger, BigInteger, BigInteger, BigInteger, BigInteger>>(
                 new Callable<Tuple5<BigInteger, BigInteger, BigInteger, BigInteger, BigInteger>>() {
@@ -524,17 +421,10 @@ public class Betting extends Contract {
                     public Tuple5<BigInteger, BigInteger, BigInteger, BigInteger, BigInteger> call() throws Exception {
                         List<Type> results = executeCallMultipleValueReturn(function);
                         return new Tuple5<BigInteger, BigInteger, BigInteger, BigInteger, BigInteger>(
-<<<<<<< HEAD
-                                (BigInteger) results.get(0).getValue(), 
+                                (BigInteger) results.get(0).getValue(),
                                 (BigInteger) results.get(1).getValue(), 
                                 (BigInteger) results.get(2).getValue(), 
                                 (BigInteger) results.get(3).getValue(), 
-=======
-                                (BigInteger) results.get(0).getValue(),
-                                (BigInteger) results.get(1).getValue(),
-                                (BigInteger) results.get(2).getValue(),
-                                (BigInteger) results.get(3).getValue(),
->>>>>>> 55e59b94c6b98c51c3dd8bbc4aa0a70f3153e81b
                                 (BigInteger) results.get(4).getValue());
                     }
                 });
